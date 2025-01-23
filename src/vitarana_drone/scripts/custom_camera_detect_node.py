@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 
-import cv2
 import rospy
+from std_msgs.msg import String
+
+import cv2
 import numpy as np
+import time
 
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
@@ -13,11 +16,17 @@ from ultralytics import YOLO
 class ImageDetector:
     def __init__(self):
         rospy.init_node('camera_detection')
+        
+        self.condition_flag = "takeoff"
+        
+        self.condition_sub = rospy.Subscriber("/edrone/condition", String, self.condition_callback)
+        self.condition_pub = rospy.Publisher("/edrone/condition", String, queue_size=10)
+
         self.image_sub = rospy.Subscriber("/edrone/camera/image_raw", Image, self.image_callback)
-        self.bounding_box_pub = rospy.Publisher("/edrone/camera/bounding_box", ImageFeatures, queue_size=1)
+        self.detected_object_feature_pub = rospy.Publisher("/edrone/camera/object_feature", ImageFeatures, queue_size=10)
         self.bridge = CvBridge()
         self.model = YOLO(r'/home/esaddogan/edrone_ws/src/vitarana_drone/ai_models/last.pt')
-        self.sleep_rate = rospy.Rate(1)
+        self.rate = rospy.Rate(3)
 
         self.box_corners = (0, 0, 0, 0)
         self.x_center = 0
@@ -48,26 +57,13 @@ class ImageDetector:
         height = y2 - y1
         return (width, height)
 
-    def _get_track_points(self, current_tracked_object, point):
-        start_point = current_tracked_object.get(point)
-        end_point = current_tracked_object.get(point + 1) if current_tracked_object._len_() > 1 else self._pass()
-        return start_point,end_point
+    def condition_callback(self, data):
+        self.condition_flag = data.data
 
-    def image_callback(self, data):
-        image = self.bridge.imgmsg_to_cv2(data, "bgr8")
-        result = self.model(image)
+    def condition_publish(self, condition):
+        self.condition_pub.publish(condition)
+        self.rate.sleep()
 
-        for box in result[0].boxes:
-            self.box_corners, obj_id, obj_cls, conf = self._get_box_features(box)
-            self.x_center, self.y_center = self._get_box_center(box_corners)
-
-        cv2.rectangle(image, (self.box_corners[0], self.box_corners[1]), (self.box_corners[2], self.box_corners[3]), (0, 255, 0), 1)
-        cv2.putText(image, f'{obj_cls} {conf:.2f}', (self.box_corners[0], self.box_corners[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 1)
-        cv2.imshow('camera_feed', image)
-        cv2.waitKey(1)
-
-        self.sleep_rate.sleep()
-    
     def publish_image_features(self, box_corners): 
         image_features = ImageFeatures()
 
@@ -79,8 +75,27 @@ class ImageDetector:
         image_features.angle_pitch = 0
         image_features.angle_yaw = 0
         
-        self.bounding_box_pub.publish(image_features)
-        self.sleep_rate.sleep()
+        self.detected_object_feature_pub.publish(image_features)
+
+        self.rate.sleep()
+
+    def image_callback(self, data):
+        image = self.bridge.imgmsg_to_cv2(data, "bgr8")
+        result = self.model(image)
+
+        for box in result[0].boxes:
+            self.box_corners, obj_id, obj_cls, conf = self._get_box_features(box)
+            self.x_center, self.y_center = self._get_box_center(self.box_corners)
+
+            cv2.rectangle(image, (self.box_corners[0], self.box_corners[1]), (self.box_corners[2], self.box_corners[3]), (0, 255, 0), 1)
+            cv2.putText(image, f'{obj_cls} {conf:.2f}', (self.box_corners[0], self.box_corners[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 1)
+        
+        cv2.imshow('camera_feed', image)
+        cv2.waitKey(1)
+
+        self.publish_image_features(self.box_corners)
+
+        self.rate.sleep()
 
     def main(self):
         try:
@@ -90,7 +105,7 @@ class ImageDetector:
         finally:
             cv2.destroyAllWindows()
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     try:
         detector = ImageDetector()
         detector.main()
