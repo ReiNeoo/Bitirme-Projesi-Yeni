@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!-- Launch Gazebo with the specified world -->
+    <include 
+        file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find vitarana_drone)/worlds/empty_task_world.world"/>
+    </include>
+
+    <!-- Spawn Drone 2 -->
+    <group ns="drone2">
+        <node name="spawn_drone" pkg="gazebo_ros" type="spawn_model" 
+              args="-sdf -file $(find vitarana_drone)/models/edrone/model.sdf -model drone2 -x 2 -y 0 -z 0.2" output="screen"/>
+    </group>
+
+	<node pkg="vitarana_drone" type="attitude_controller.py" name="attitude_controller" output="screen"/>
+
+	<node pkg="vitarana_drone" type="custom_controller.py" name="custom_controller" output="screen"/>
+
+	<node pkg="vitarana_drone" type="custom_camera_node.py" name="custom_camera_node" output="screen"/>
+
+</launch>

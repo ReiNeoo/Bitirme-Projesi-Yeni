@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <!-- Include the sun -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://edrone</uri>
+      <pose>0 0 15.0 0 0 0</pose>
+    </include>
+
+    <!-- Add terrain using heightmap -->
+    <model name="terrain">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <heightmap>
+              <uri>/home/esaddogan/edrone_ws/src/vitarana_drone/heightmaps/Rolling Hills Height Map.png</uri>
+              <size>129 129 10</size>
+              <pos>0 0 0</pos>
+            </heightmap>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <heightmap>
+              <uri>/home/esaddogan/edrone_ws/src/vitarana_drone/heightmaps/Rolling Hills Height Map.png</uri>
+              <size>129 129 10</size>
+              <pos>0 0 0</pos>
+            </heightmap>
+          </geometry>
+          <material>
+            <script>
+              <uri>/home/esaddogan/edrone_ws/src/vitarana_drone/heightmaps/Rolling Hills Height Map.png</uri>
+              <name>Gazebo/Grass</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
