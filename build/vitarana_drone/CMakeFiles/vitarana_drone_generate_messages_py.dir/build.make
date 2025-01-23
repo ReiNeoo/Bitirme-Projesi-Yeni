@@ -56,6 +56,7 @@ include vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/progre
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_prop_speed.py
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_edrone_cmd.py
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_ImageFeatures.py
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_TargetPosition.py
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/_Gripper.py
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/__init__.py
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/__init__.py
@@ -76,31 +77,39 @@ vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py: /home/esaddogan/e
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG vitarana_drone/ImageFeatures"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg
 
+/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_TargetPosition.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_TargetPosition.py: /home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG vitarana_drone/TargetPosition"
+	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg
+
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/_Gripper.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/_Gripper.py: /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python code from SRV vitarana_drone/Gripper"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python code from SRV vitarana_drone/Gripper"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv
 
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/__init__.py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_prop_speed.py
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/__init__.py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_edrone_cmd.py
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/__init__.py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_ImageFeatures.py
+/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/__init__.py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_TargetPosition.py
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/__init__.py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/_Gripper.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python msg __init__.py for vitarana_drone"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python msg __init__.py for vitarana_drone"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg --initpy
 
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/__init__.py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_prop_speed.py
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/__init__.py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_edrone_cmd.py
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/__init__.py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_ImageFeatures.py
+/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/__init__.py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_TargetPosition.py
 /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/__init__.py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/_Gripper.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python srv __init__.py for vitarana_drone"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python srv __init__.py for vitarana_drone"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv --initpy
 
 vitarana_drone_generate_messages_py: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py
 vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_prop_speed.py
 vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_edrone_cmd.py
 vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_ImageFeatures.py
+vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_TargetPosition.py
 vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/_Gripper.py
 vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/__init__.py
 vitarana_drone_generate_messages_py: /home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/__init__.py

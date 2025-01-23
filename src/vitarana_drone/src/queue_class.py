@@ -50,7 +50,3 @@ class lineQueue(Queue):
             for arg in args:
                 self.items.pop(0)
                 self.items.append(arg)
-
-class QueueDict(lineQueue):
-    def __init__(self, queue_size) -> None:
-        super().__init__(queue_size)

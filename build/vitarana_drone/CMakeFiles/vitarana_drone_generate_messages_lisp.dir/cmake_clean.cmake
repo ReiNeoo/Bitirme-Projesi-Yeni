@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/ImageFeatures.lisp"
+  "/home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/TargetPosition.lisp"
   "/home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/edrone_cmd.lisp"
   "/home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/prop_speed.lisp"
   "/home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/srv/Gripper.lisp"

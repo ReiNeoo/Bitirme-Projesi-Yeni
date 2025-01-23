@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "vitarana_drone: 3 messages, 1 services")
+message(STATUS "vitarana_drone: 4 messages, 1 services")
 
 set(MSG_I_FLAGS "-Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
@@ -32,6 +32,11 @@ add_custom_target(_vitarana_drone_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "vitarana_drone" "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg" ""
 )
 
+get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg" NAME_WE)
+add_custom_target(_vitarana_drone_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "vitarana_drone" "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg" ""
+)
+
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv" NAME_WE)
 add_custom_target(_vitarana_drone_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "vitarana_drone" "/home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv" ""
@@ -57,6 +62,12 @@ _generate_msg_cpp(vitarana_drone
 )
 _generate_msg_cpp(vitarana_drone
   "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/vitarana_drone
+)
+_generate_msg_cpp(vitarana_drone
+  "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/vitarana_drone
@@ -88,6 +99,8 @@ get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/m
 add_dependencies(vitarana_drone_generate_messages_cpp _vitarana_drone_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg" NAME_WE)
 add_dependencies(vitarana_drone_generate_messages_cpp _vitarana_drone_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg" NAME_WE)
+add_dependencies(vitarana_drone_generate_messages_cpp _vitarana_drone_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv" NAME_WE)
 add_dependencies(vitarana_drone_generate_messages_cpp _vitarana_drone_generate_messages_check_deps_${_filename})
 
@@ -114,6 +127,12 @@ _generate_msg_eus(vitarana_drone
 )
 _generate_msg_eus(vitarana_drone
   "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/vitarana_drone
+)
+_generate_msg_eus(vitarana_drone
+  "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/vitarana_drone
@@ -145,6 +164,8 @@ get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/m
 add_dependencies(vitarana_drone_generate_messages_eus _vitarana_drone_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg" NAME_WE)
 add_dependencies(vitarana_drone_generate_messages_eus _vitarana_drone_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg" NAME_WE)
+add_dependencies(vitarana_drone_generate_messages_eus _vitarana_drone_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv" NAME_WE)
 add_dependencies(vitarana_drone_generate_messages_eus _vitarana_drone_generate_messages_check_deps_${_filename})
 
@@ -171,6 +192,12 @@ _generate_msg_lisp(vitarana_drone
 )
 _generate_msg_lisp(vitarana_drone
   "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/vitarana_drone
+)
+_generate_msg_lisp(vitarana_drone
+  "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/vitarana_drone
@@ -202,6 +229,8 @@ get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/m
 add_dependencies(vitarana_drone_generate_messages_lisp _vitarana_drone_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg" NAME_WE)
 add_dependencies(vitarana_drone_generate_messages_lisp _vitarana_drone_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg" NAME_WE)
+add_dependencies(vitarana_drone_generate_messages_lisp _vitarana_drone_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv" NAME_WE)
 add_dependencies(vitarana_drone_generate_messages_lisp _vitarana_drone_generate_messages_check_deps_${_filename})
 
@@ -228,6 +257,12 @@ _generate_msg_nodejs(vitarana_drone
 )
 _generate_msg_nodejs(vitarana_drone
   "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/vitarana_drone
+)
+_generate_msg_nodejs(vitarana_drone
+  "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/vitarana_drone
@@ -259,6 +294,8 @@ get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/m
 add_dependencies(vitarana_drone_generate_messages_nodejs _vitarana_drone_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg" NAME_WE)
 add_dependencies(vitarana_drone_generate_messages_nodejs _vitarana_drone_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg" NAME_WE)
+add_dependencies(vitarana_drone_generate_messages_nodejs _vitarana_drone_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv" NAME_WE)
 add_dependencies(vitarana_drone_generate_messages_nodejs _vitarana_drone_generate_messages_check_deps_${_filename})
 
@@ -289,6 +326,12 @@ _generate_msg_py(vitarana_drone
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/vitarana_drone
 )
+_generate_msg_py(vitarana_drone
+  "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/vitarana_drone
+)
 
 ### Generating Services
 _generate_srv_py(vitarana_drone
@@ -315,6 +358,8 @@ add_dependencies(vitarana_drone_generate_messages_py _vitarana_drone_generate_me
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/edrone_cmd.msg" NAME_WE)
 add_dependencies(vitarana_drone_generate_messages_py _vitarana_drone_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg" NAME_WE)
+add_dependencies(vitarana_drone_generate_messages_py _vitarana_drone_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg" NAME_WE)
 add_dependencies(vitarana_drone_generate_messages_py _vitarana_drone_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv" NAME_WE)
 add_dependencies(vitarana_drone_generate_messages_py _vitarana_drone_generate_messages_check_deps_${_filename})

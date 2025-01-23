@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "/home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/manifest.l"
   "/home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/ImageFeatures.l"
+  "/home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/TargetPosition.l"
   "/home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/edrone_cmd.l"
   "/home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/prop_speed.l"
   "/home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/srv/Gripper.l"

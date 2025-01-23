@@ -1,0 +1,199 @@
+{
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"include",
+			"generate_messages",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"/home/esaddogan/edrone_ws/build/vitarana_drone/cmake/vitarana_drone-genmsg.cmake",
+			"/opt/ros/noetic/share/genmsg/cmake/genmsg-extras.cmake",
+			"vitarana_drone/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 48,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 307,
+				"parent" : 1
+			},
+			{
+				"file" : 0,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 361,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 359,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 357,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 363,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 429,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 365,
+				"parent" : 3
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "_vitarana_drone_generate_messages_check_deps_ImageFeatures::@2e0b6579ac4478e30848"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "_vitarana_drone_generate_messages_check_deps_edrone_cmd::@2e0b6579ac4478e30848"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "_vitarana_drone_generate_messages_check_deps_prop_speed::@2e0b6579ac4478e30848"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "_vitarana_drone_generate_messages_check_deps_TargetPosition::@2e0b6579ac4478e30848"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "std_msgs_generate_messages_py::@2e0b6579ac4478e30848"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "_vitarana_drone_generate_messages_check_deps_Gripper::@2e0b6579ac4478e30848"
+		}
+	],
+	"id" : "vitarana_drone_generate_messages_py::@2e0b6579ac4478e30848",
+	"name" : "vitarana_drone_generate_messages_py",
+	"paths" : 
+	{
+		"build" : "vitarana_drone",
+		"source" : "vitarana_drone"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "/home/esaddogan/edrone_ws/build/vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/esaddogan/edrone_ws/build/vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_prop_speed.py.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_edrone_cmd.py.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_ImageFeatures.py.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_TargetPosition.py.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/_Gripper.py.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/__init__.py.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/srv/__init__.py.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

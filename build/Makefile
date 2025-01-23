@@ -753,6 +753,19 @@ std_msgs_generate_messages_nodejs/fast:
 .PHONY : std_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
+# Target rules for targets named _vitarana_drone_generate_messages_check_deps_TargetPosition
+
+# Build rule for target.
+_vitarana_drone_generate_messages_check_deps_TargetPosition: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _vitarana_drone_generate_messages_check_deps_TargetPosition
+.PHONY : _vitarana_drone_generate_messages_check_deps_TargetPosition
+
+# fast build rule for target.
+_vitarana_drone_generate_messages_check_deps_TargetPosition/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetPosition.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetPosition.dir/build
+.PHONY : _vitarana_drone_generate_messages_check_deps_TargetPosition/fast
+
+#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -1525,6 +1538,7 @@ help:
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_nodejs"
+	@echo "... _vitarana_drone_generate_messages_check_deps_TargetPosition"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_lisp"
 	@echo "... _catkin_empty_exported_target"

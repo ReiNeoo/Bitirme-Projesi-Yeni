@@ -56,6 +56,7 @@ include vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/prog
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp: /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/prop_speed.lisp
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp: /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/edrone_cmd.lisp
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp: /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/ImageFeatures.lisp
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp: /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/TargetPosition.lisp
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp: /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/srv/Gripper.lisp
 
 
@@ -74,15 +75,21 @@ vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp: /home/esaddogan
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from vitarana_drone/ImageFeatures.msg"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg
 
+/home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/TargetPosition.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
+/home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/TargetPosition.lisp: /home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Lisp code from vitarana_drone/TargetPosition.msg"
+	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg
+
 /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/srv/Gripper.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
 /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/srv/Gripper.lisp: /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Lisp code from vitarana_drone/Gripper.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Lisp code from vitarana_drone/Gripper.srv"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/srv
 
 vitarana_drone_generate_messages_lisp: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp
 vitarana_drone_generate_messages_lisp: /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/prop_speed.lisp
 vitarana_drone_generate_messages_lisp: /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/edrone_cmd.lisp
 vitarana_drone_generate_messages_lisp: /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/ImageFeatures.lisp
+vitarana_drone_generate_messages_lisp: /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/msg/TargetPosition.lisp
 vitarana_drone_generate_messages_lisp: /home/esaddogan/edrone_ws/devel/share/common-lisp/ros/vitarana_drone/srv/Gripper.lisp
 vitarana_drone_generate_messages_lisp: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/build.make
 

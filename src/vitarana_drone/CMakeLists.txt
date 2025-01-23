@@ -36,6 +36,7 @@ add_message_files(
    prop_speed.msg
    edrone_cmd.msg
    ImageFeatures.msg
+   TargetPosition.msg
 )
 
 ## Generate services in the 'srv' folder
