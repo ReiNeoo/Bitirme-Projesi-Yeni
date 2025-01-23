@@ -55,6 +55,7 @@ include vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/pr
 
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/prop_speed.js
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/edrone_cmd.js
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/ImageFeatures.js
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/srv/Gripper.js
 
 
@@ -68,14 +69,20 @@ vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddog
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from vitarana_drone/edrone_cmd.msg"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/edrone_cmd.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg
 
+/home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/ImageFeatures.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/ImageFeatures.js: /home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from vitarana_drone/ImageFeatures.msg"
+	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg
+
 /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/srv/Gripper.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/srv/Gripper.js: /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from vitarana_drone/Gripper.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from vitarana_drone/Gripper.srv"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/srv
 
 vitarana_drone_generate_messages_nodejs: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs
 vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/prop_speed.js
 vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/edrone_cmd.js
+vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/ImageFeatures.js
 vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/srv/Gripper.js
 vitarana_drone_generate_messages_nodejs: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/build.make
 

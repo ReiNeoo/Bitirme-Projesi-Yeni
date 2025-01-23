@@ -55,6 +55,7 @@ include vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/progr
 
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/prop_speed.h
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/edrone_cmd.h
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/ImageFeatures.h
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/Gripper.h
 
 
@@ -70,16 +71,23 @@ vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp: /home/esaddogan/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from vitarana_drone/edrone_cmd.msg"
 	cd /home/esaddogan/edrone_ws/src/vitarana_drone && /home/esaddogan/edrone_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/edrone_cmd.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/include/vitarana_drone -e /opt/ros/noetic/share/gencpp/cmake/..
 
+/home/esaddogan/edrone_ws/devel/include/vitarana_drone/ImageFeatures.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/esaddogan/edrone_ws/devel/include/vitarana_drone/ImageFeatures.h: /home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg
+/home/esaddogan/edrone_ws/devel/include/vitarana_drone/ImageFeatures.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from vitarana_drone/ImageFeatures.msg"
+	cd /home/esaddogan/edrone_ws/src/vitarana_drone && /home/esaddogan/edrone_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/ImageFeatures.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/include/vitarana_drone -e /opt/ros/noetic/share/gencpp/cmake/..
+
 /home/esaddogan/edrone_ws/devel/include/vitarana_drone/Gripper.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/esaddogan/edrone_ws/devel/include/vitarana_drone/Gripper.h: /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv
 /home/esaddogan/edrone_ws/devel/include/vitarana_drone/Gripper.h: /opt/ros/noetic/share/gencpp/msg.h.template
 /home/esaddogan/edrone_ws/devel/include/vitarana_drone/Gripper.h: /opt/ros/noetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from vitarana_drone/Gripper.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from vitarana_drone/Gripper.srv"
 	cd /home/esaddogan/edrone_ws/src/vitarana_drone && /home/esaddogan/edrone_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/include/vitarana_drone -e /opt/ros/noetic/share/gencpp/cmake/..
 
 vitarana_drone_generate_messages_cpp: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp
 vitarana_drone_generate_messages_cpp: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/prop_speed.h
 vitarana_drone_generate_messages_cpp: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/edrone_cmd.h
+vitarana_drone_generate_messages_cpp: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/ImageFeatures.h
 vitarana_drone_generate_messages_cpp: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/Gripper.h
 vitarana_drone_generate_messages_cpp: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build.make
 

@@ -1,6 +1,8 @@
 (cl:defpackage vitarana_drone-msg
   (:use )
   (:export
+   "<IMAGEFEATURES>"
+   "IMAGEFEATURES"
    "<EDRONE_CMD>"
    "EDRONE_CMD"
    "<PROP_SPEED>"

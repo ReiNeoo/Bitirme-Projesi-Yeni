@@ -273,6 +273,21 @@ vitarana_drone_geneus/fast:
 .PHONY : vitarana_drone_geneus/fast
 
 # Convenience name for target.
+vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/rule:
+	cd /home/esaddogan/edrone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/rule
+.PHONY : vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/rule
+
+# Convenience name for target.
+_vitarana_drone_generate_messages_check_deps_ImageFeatures: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/rule
+
+.PHONY : _vitarana_drone_generate_messages_check_deps_ImageFeatures
+
+# fast build rule for target.
+_vitarana_drone_generate_messages_check_deps_ImageFeatures/fast:
+	cd /home/esaddogan/edrone_ws/build && $(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/build
+.PHONY : _vitarana_drone_generate_messages_check_deps_ImageFeatures/fast
+
+# Convenience name for target.
 vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/rule:
 	cd /home/esaddogan/edrone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/rule
 .PHONY : vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/rule
@@ -1589,6 +1604,7 @@ help:
 	@echo "... vitarana_drone_gennodejs"
 	@echo "... vitarana_drone_generate_messages_lisp"
 	@echo "... vitarana_drone_geneus"
+	@echo "... _vitarana_drone_generate_messages_check_deps_ImageFeatures"
 	@echo "... _vitarana_drone_generate_messages_check_deps_edrone_cmd"
 	@echo "... _vitarana_drone_generate_messages_check_deps_prop_speed"
 	@echo "... vitarana_drone_generate_messages"

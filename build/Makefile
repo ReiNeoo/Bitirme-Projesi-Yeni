@@ -48,7 +48,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/esaddogan/edrone_ws/src/vitarana_drone
+CMAKE_SOURCE_DIR = /home/esaddogan/edrone_ws/src
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/esaddogan/edrone_ws/build
@@ -67,6 +67,30 @@ install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -89,29 +113,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -123,17 +124,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,747 +168,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named gazebo_ros_gps
-
-# Build rule for target.
-gazebo_ros_gps: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_gps
-.PHONY : gazebo_ros_gps
-
-# fast build rule for target.
-gazebo_ros_gps/fast:
-	$(MAKE) -f CMakeFiles/gazebo_ros_gps.dir/build.make CMakeFiles/gazebo_ros_gps.dir/build
-.PHONY : gazebo_ros_gps/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_edrone_propulsion
-
-# Build rule for target.
-gazebo_edrone_propulsion: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_edrone_propulsion
-.PHONY : gazebo_edrone_propulsion
-
-# fast build rule for target.
-gazebo_edrone_propulsion/fast:
-	$(MAKE) -f CMakeFiles/gazebo_edrone_propulsion.dir/build.make CMakeFiles/gazebo_edrone_propulsion.dir/build
-.PHONY : gazebo_edrone_propulsion/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_gencfg
-
-# Build rule for target.
-vitarana_drone_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_gencfg
-.PHONY : vitarana_drone_gencfg
-
-# fast build rule for target.
-vitarana_drone_gencfg/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_gencfg.dir/build.make CMakeFiles/vitarana_drone_gencfg.dir/build
-.PHONY : vitarana_drone_gencfg/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_generate_messages_py
-
-# Build rule for target.
-vitarana_drone_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages_py
-.PHONY : vitarana_drone_generate_messages_py
-
-# fast build rule for target.
-vitarana_drone_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_generate_messages_py.dir/build.make CMakeFiles/vitarana_drone_generate_messages_py.dir/build
-.PHONY : vitarana_drone_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_gennodejs
-
-# Build rule for target.
-vitarana_drone_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_gennodejs
-.PHONY : vitarana_drone_gennodejs
-
-# fast build rule for target.
-vitarana_drone_gennodejs/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_gennodejs.dir/build.make CMakeFiles/vitarana_drone_gennodejs.dir/build
-.PHONY : vitarana_drone_gennodejs/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_generate_messages_lisp
-
-# Build rule for target.
-vitarana_drone_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages_lisp
-.PHONY : vitarana_drone_generate_messages_lisp
-
-# fast build rule for target.
-vitarana_drone_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_generate_messages_lisp.dir/build.make CMakeFiles/vitarana_drone_generate_messages_lisp.dir/build
-.PHONY : vitarana_drone_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_geneus
-
-# Build rule for target.
-vitarana_drone_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_geneus
-.PHONY : vitarana_drone_geneus
-
-# fast build rule for target.
-vitarana_drone_geneus/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_geneus.dir/build.make CMakeFiles/vitarana_drone_geneus.dir/build
-.PHONY : vitarana_drone_geneus/fast
-
-#=============================================================================
-# Target rules for targets named _vitarana_drone_generate_messages_check_deps_image_features
-
-# Build rule for target.
-_vitarana_drone_generate_messages_check_deps_image_features: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _vitarana_drone_generate_messages_check_deps_image_features
-.PHONY : _vitarana_drone_generate_messages_check_deps_image_features
-
-# fast build rule for target.
-_vitarana_drone_generate_messages_check_deps_image_features/fast:
-	$(MAKE) -f CMakeFiles/_vitarana_drone_generate_messages_check_deps_image_features.dir/build.make CMakeFiles/_vitarana_drone_generate_messages_check_deps_image_features.dir/build
-.PHONY : _vitarana_drone_generate_messages_check_deps_image_features/fast
-
-#=============================================================================
-# Target rules for targets named _vitarana_drone_generate_messages_check_deps_edrone_cmd
-
-# Build rule for target.
-_vitarana_drone_generate_messages_check_deps_edrone_cmd: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _vitarana_drone_generate_messages_check_deps_edrone_cmd
-.PHONY : _vitarana_drone_generate_messages_check_deps_edrone_cmd
-
-# fast build rule for target.
-_vitarana_drone_generate_messages_check_deps_edrone_cmd/fast:
-	$(MAKE) -f CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/build.make CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/build
-.PHONY : _vitarana_drone_generate_messages_check_deps_edrone_cmd/fast
-
-#=============================================================================
-# Target rules for targets named _vitarana_drone_generate_messages_check_deps_prop_speed
-
-# Build rule for target.
-_vitarana_drone_generate_messages_check_deps_prop_speed: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _vitarana_drone_generate_messages_check_deps_prop_speed
-.PHONY : _vitarana_drone_generate_messages_check_deps_prop_speed
-
-# fast build rule for target.
-_vitarana_drone_generate_messages_check_deps_prop_speed/fast:
-	$(MAKE) -f CMakeFiles/_vitarana_drone_generate_messages_check_deps_prop_speed.dir/build.make CMakeFiles/_vitarana_drone_generate_messages_check_deps_prop_speed.dir/build
-.PHONY : _vitarana_drone_generate_messages_check_deps_prop_speed/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_generate_messages
-
-# Build rule for target.
-vitarana_drone_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages
-.PHONY : vitarana_drone_generate_messages
-
-# fast build rule for target.
-vitarana_drone_generate_messages/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_generate_messages.dir/build.make CMakeFiles/vitarana_drone_generate_messages.dir/build
-.PHONY : vitarana_drone_generate_messages/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_gencfg
-
-# Build rule for target.
-dynamic_reconfigure_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_gencfg
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	$(MAKE) -f CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_generate_messages_eus
-
-# Build rule for target.
-vitarana_drone_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages_eus
-.PHONY : vitarana_drone_generate_messages_eus
-
-# fast build rule for target.
-vitarana_drone_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_generate_messages_eus.dir/build.make CMakeFiles/vitarana_drone_generate_messages_eus.dir/build
-.PHONY : vitarana_drone_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_cpp
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_cpp
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_generate_messages_nodejs
-
-# Build rule for target.
-vitarana_drone_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages_nodejs
-.PHONY : vitarana_drone_generate_messages_nodejs
-
-# fast build rule for target.
-vitarana_drone_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/build.make CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/build
-.PHONY : vitarana_drone_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named tf2_msgs_generate_messages_nodejs
-
-# Build rule for target.
-tf2_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_nodejs
-.PHONY : tf2_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-tf2_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
-.PHONY : tf2_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named tf2_msgs_generate_messages_lisp
-
-# Build rule for target.
-tf2_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_lisp
-.PHONY : tf2_msgs_generate_messages_lisp
-
-# fast build rule for target.
-tf2_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
-.PHONY : tf2_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_lisp
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_lisp
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named tf2_msgs_generate_messages_cpp
-
-# Build rule for target.
-tf2_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_cpp
-.PHONY : tf2_msgs_generate_messages_cpp
-
-# fast build rule for target.
-tf2_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
-.PHONY : tf2_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_generate_messages_py
-
-# Build rule for target.
-actionlib_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_py
-.PHONY : actionlib_generate_messages_py
-
-# fast build rule for target.
-actionlib_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/actionlib_generate_messages_py.dir/build.make CMakeFiles/actionlib_generate_messages_py.dir/build
-.PHONY : actionlib_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_generate_messages_nodejs
-
-# Build rule for target.
-actionlib_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_nodejs
-.PHONY : actionlib_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make CMakeFiles/actionlib_generate_messages_nodejs.dir/build
-.PHONY : actionlib_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_generate_messages_cpp
-
-# Build rule for target.
-actionlib_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_cpp
-.PHONY : actionlib_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/actionlib_generate_messages_cpp.dir/build.make CMakeFiles/actionlib_generate_messages_cpp.dir/build
-.PHONY : actionlib_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_nodejs
-
-# Build rule for target.
-tf_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_nodejs
-.PHONY : tf_generate_messages_nodejs
-
-# fast build rule for target.
-tf_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/tf_generate_messages_nodejs.dir/build.make CMakeFiles/tf_generate_messages_nodejs.dir/build
-.PHONY : tf_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_cpp
-
-# Build rule for target.
-roscpp_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_cpp
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_cpp.dir/build.make CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_eus
-
-# Build rule for target.
-sensor_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_eus
-.PHONY : sensor_msgs_generate_messages_eus
-
-# fast build rule for target.
-sensor_msgs_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
-.PHONY : sensor_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_lisp
-
-# Build rule for target.
-sensor_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_lisp
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_ros_gencfg
-
-# Build rule for target.
-gazebo_ros_gencfg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_gencfg
-.PHONY : gazebo_ros_gencfg
-
-# fast build rule for target.
-gazebo_ros_gencfg/fast:
-	$(MAKE) -f CMakeFiles/gazebo_ros_gencfg.dir/build.make CMakeFiles/gazebo_ros_gencfg.dir/build
-.PHONY : gazebo_ros_gencfg/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_py
-
-# Build rule for target.
-geometry_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_py
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named tf2_msgs_generate_messages_eus
-
-# Build rule for target.
-tf2_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_eus
-.PHONY : tf2_msgs_generate_messages_eus
-
-# fast build rule for target.
-tf2_msgs_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
-.PHONY : tf2_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_py
-
-# Build rule for target.
-sensor_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_py
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_eus
-
-# Build rule for target.
-geometry_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_eus
-.PHONY : geometry_msgs_generate_messages_eus
-
-# fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_nodejs
-
-# Build rule for target.
-std_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_nodejs
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_cpp
-
-# Build rule for target.
-geometry_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_cpp
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_lisp
-
-# Build rule for target.
-trajectory_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_lisp
-.PHONY : trajectory_msgs_generate_messages_lisp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
-.PHONY : trajectory_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_nodejs
-
-# Build rule for target.
-trajectory_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_nodejs
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_genpy
-
-# Build rule for target.
-vitarana_drone_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_genpy
-.PHONY : vitarana_drone_genpy
-
-# fast build rule for target.
-vitarana_drone_genpy/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_genpy.dir/build.make CMakeFiles/vitarana_drone_genpy.dir/build
-.PHONY : vitarana_drone_genpy/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_msgs_generate_messages_nodejs
-
-# Build rule for target.
-gazebo_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_nodejs
-.PHONY : gazebo_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
-.PHONY : gazebo_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_genlisp
-
-# Build rule for target.
-vitarana_drone_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_genlisp
-.PHONY : vitarana_drone_genlisp
-
-# fast build rule for target.
-vitarana_drone_genlisp/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_genlisp.dir/build.make CMakeFiles/vitarana_drone_genlisp.dir/build
-.PHONY : vitarana_drone_genlisp/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_py
-
-# Build rule for target.
-std_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_py.dir/build.make CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named tests
-
-# Build rule for target.
-tests: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tests
-.PHONY : tests
-
-# fast build rule for target.
-tests/fast:
-	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
-.PHONY : tests/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_generate_messages_lisp
-
-# Build rule for target.
-actionlib_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_lisp
-.PHONY : actionlib_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/actionlib_generate_messages_lisp.dir/build.make CMakeFiles/actionlib_generate_messages_lisp.dir/build
-.PHONY : actionlib_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named clean_test_results
-
-# Build rule for target.
-clean_test_results: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results
-.PHONY : clean_test_results
-
-# fast build rule for target.
-clean_test_results/fast:
-	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
-.PHONY : clean_test_results/fast
-
-#=============================================================================
-# Target rules for targets named _catkin_empty_exported_target
-
-# Build rule for target.
-_catkin_empty_exported_target: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	$(MAKE) -f CMakeFiles/_catkin_empty_exported_target.dir/build.make CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_lisp
-
-# Build rule for target.
-roscpp_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_lisp
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_lisp.dir/build.make CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_msgs_generate_messages_cpp
-
-# Build rule for target.
-gazebo_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_cpp
-.PHONY : gazebo_msgs_generate_messages_cpp
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build.make CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build
-.PHONY : gazebo_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_lisp
-
-# Build rule for target.
-std_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_nodejs
-
-# Build rule for target.
-std_srvs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_nodejs
-.PHONY : std_srvs_generate_messages_nodejs
-
-# fast build rule for target.
-std_srvs_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
-.PHONY : std_srvs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_nodejs
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_nodejs
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named tf2_msgs_generate_messages_py
-
-# Build rule for target.
-tf2_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_py
-.PHONY : tf2_msgs_generate_messages_py
-
-# fast build rule for target.
-tf2_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make CMakeFiles/tf2_msgs_generate_messages_py.dir/build
-.PHONY : tf2_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_msgs_generate_messages_lisp
-
-# Build rule for target.
-gazebo_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_lisp
-.PHONY : gazebo_msgs_generate_messages_lisp
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
-.PHONY : gazebo_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_generate_messages_cpp
-
-# Build rule for target.
-vitarana_drone_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages_cpp
-.PHONY : vitarana_drone_generate_messages_cpp
-
-# fast build rule for target.
-vitarana_drone_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build.make CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build
-.PHONY : vitarana_drone_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named nav_msgs_generate_messages_cpp
-
-# Build rule for target.
-nav_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_cpp
-.PHONY : nav_msgs_generate_messages_cpp
-
-# fast build rule for target.
-nav_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
-.PHONY : nav_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_cpp
-
-# Build rule for target.
-sensor_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_cpp
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named nav_msgs_generate_messages_nodejs
-
-# Build rule for target.
-nav_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_nodejs
-.PHONY : nav_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-nav_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
-.PHONY : nav_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_py
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_py
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_msgs_generate_messages_eus
-
-# Build rule for target.
-actionlib_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_eus
-.PHONY : actionlib_msgs_generate_messages_eus
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
-.PHONY : actionlib_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named download_extra_data
-
-# Build rule for target.
-download_extra_data: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 download_extra_data
-.PHONY : download_extra_data
-
-# fast build rule for target.
-download_extra_data/fast:
-	$(MAKE) -f CMakeFiles/download_extra_data.dir/build.make CMakeFiles/download_extra_data.dir/build
-.PHONY : download_extra_data/fast
-
-#=============================================================================
 # Target rules for targets named doxygen
 
 # Build rule for target.
@@ -920,58 +179,6 @@ doxygen: cmake_check_build_system
 doxygen/fast:
 	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/build
 .PHONY : doxygen/fast
-
-#=============================================================================
-# Target rules for targets named vitarana_drone_gencpp
-
-# Build rule for target.
-vitarana_drone_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_gencpp
-.PHONY : vitarana_drone_gencpp
-
-# fast build rule for target.
-vitarana_drone_gencpp/fast:
-	$(MAKE) -f CMakeFiles/vitarana_drone_gencpp.dir/build.make CMakeFiles/vitarana_drone_gencpp.dir/build
-.PHONY : vitarana_drone_gencpp/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_py
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_py
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_msgs_generate_messages_py
-
-# Build rule for target.
-gazebo_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_py
-.PHONY : gazebo_msgs_generate_messages_py
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/gazebo_msgs_generate_messages_py.dir/build.make CMakeFiles/gazebo_msgs_generate_messages_py.dir/build
-.PHONY : gazebo_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_cpp
-
-# Build rule for target.
-std_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
 
 #=============================================================================
 # Target rules for targets named run_tests
@@ -987,433 +194,43 @@ run_tests/fast:
 .PHONY : run_tests/fast
 
 #=============================================================================
-# Target rules for targets named std_srvs_generate_messages_cpp
+# Target rules for targets named clean_test_results
 
 # Build rule for target.
-std_srvs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_cpp
-.PHONY : std_srvs_generate_messages_cpp
+clean_test_results: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results
+.PHONY : clean_test_results
 
 # fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
+clean_test_results/fast:
+	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
+.PHONY : clean_test_results/fast
 
 #=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_lisp
+# Target rules for targets named tests
 
 # Build rule for target.
-rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_lisp
-.PHONY : rosgraph_msgs_generate_messages_lisp
+tests: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tests
+.PHONY : tests
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+tests/fast:
+	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
+.PHONY : tests/fast
 
 #=============================================================================
-# Target rules for targets named tf_generate_messages_eus
+# Target rules for targets named download_extra_data
 
 # Build rule for target.
-tf_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_eus
-.PHONY : tf_generate_messages_eus
+download_extra_data: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 download_extra_data
+.PHONY : download_extra_data
 
 # fast build rule for target.
-tf_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/tf_generate_messages_eus.dir/build.make CMakeFiles/tf_generate_messages_eus.dir/build
-.PHONY : tf_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named _vitarana_drone_generate_messages_check_deps_Gripper
-
-# Build rule for target.
-_vitarana_drone_generate_messages_check_deps_Gripper: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _vitarana_drone_generate_messages_check_deps_Gripper
-.PHONY : _vitarana_drone_generate_messages_check_deps_Gripper
-
-# fast build rule for target.
-_vitarana_drone_generate_messages_check_deps_Gripper/fast:
-	$(MAKE) -f CMakeFiles/_vitarana_drone_generate_messages_check_deps_Gripper.dir/build.make CMakeFiles/_vitarana_drone_generate_messages_check_deps_Gripper.dir/build
-.PHONY : _vitarana_drone_generate_messages_check_deps_Gripper/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_cpp
-
-# Build rule for target.
-trajectory_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_cpp
-.PHONY : trajectory_msgs_generate_messages_cpp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
-.PHONY : trajectory_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named dynamic_reconfigure_generate_messages_eus
-
-# Build rule for target.
-dynamic_reconfigure_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_eus
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_nodejs
-
-# Build rule for target.
-geometry_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_nodejs
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named gazebo_msgs_generate_messages_eus
-
-# Build rule for target.
-gazebo_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_eus
-.PHONY : gazebo_msgs_generate_messages_eus
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build.make CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build
-.PHONY : gazebo_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_lisp
-
-# Build rule for target.
-geometry_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_lisp
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_cpp
-
-# Build rule for target.
-tf_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_cpp
-.PHONY : tf_generate_messages_cpp
-
-# fast build rule for target.
-tf_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/tf_generate_messages_cpp.dir/build.make CMakeFiles/tf_generate_messages_cpp.dir/build
-.PHONY : tf_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_nodejs
-
-# Build rule for target.
-sensor_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_nodejs
-.PHONY : sensor_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-sensor_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-.PHONY : sensor_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_eus
-
-# Build rule for target.
-std_srvs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_eus
-.PHONY : std_srvs_generate_messages_eus
-
-# fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/std_srvs_generate_messages_eus.dir/build.make CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_lisp
-
-# Build rule for target.
-std_srvs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_lisp
-.PHONY : std_srvs_generate_messages_lisp
-
-# fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_eus
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_eus
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_py
-
-# Build rule for target.
-std_srvs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_py
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/std_srvs_generate_messages_py.dir/build.make CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_generate_messages_eus
-
-# Build rule for target.
-actionlib_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_eus
-.PHONY : actionlib_generate_messages_eus
-
-# fast build rule for target.
-actionlib_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/actionlib_generate_messages_eus.dir/build.make CMakeFiles/actionlib_generate_messages_eus.dir/build
-.PHONY : actionlib_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_py
-
-# Build rule for target.
-trajectory_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_py
-.PHONY : trajectory_msgs_generate_messages_py
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
-.PHONY : trajectory_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_cpp
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_cpp
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_eus
-
-# Build rule for target.
-roscpp_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_eus
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_eus.dir/build.make CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_nodejs
-
-# Build rule for target.
-roscpp_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_nodejs
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_eus
-
-# Build rule for target.
-trajectory_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_eus
-.PHONY : trajectory_msgs_generate_messages_eus
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
-.PHONY : trajectory_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_py
-
-# Build rule for target.
-roscpp_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_py
-.PHONY : roscpp_generate_messages_py
-
-# fast build rule for target.
-roscpp_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_py.dir/build.make CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_nodejs
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_nodejs
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_msgs_generate_messages_py
-
-# Build rule for target.
-actionlib_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_py
-.PHONY : actionlib_msgs_generate_messages_py
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
-.PHONY : actionlib_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named nav_msgs_generate_messages_eus
-
-# Build rule for target.
-nav_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_eus
-.PHONY : nav_msgs_generate_messages_eus
-
-# fast build rule for target.
-nav_msgs_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make CMakeFiles/nav_msgs_generate_messages_eus.dir/build
-.PHONY : nav_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_py
-
-# Build rule for target.
-tf_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_py
-.PHONY : tf_generate_messages_py
-
-# fast build rule for target.
-tf_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/tf_generate_messages_py.dir/build.make CMakeFiles/tf_generate_messages_py.dir/build
-.PHONY : tf_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_msgs_generate_messages_nodejs
-
-# Build rule for target.
-actionlib_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_nodejs
-.PHONY : actionlib_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
-.PHONY : actionlib_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_eus
-
-# Build rule for target.
-std_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_eus
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_eus.dir/build.make CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_msgs_generate_messages_lisp
-
-# Build rule for target.
-actionlib_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_lisp
-.PHONY : actionlib_msgs_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
-.PHONY : actionlib_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named nav_msgs_generate_messages_lisp
-
-# Build rule for target.
-nav_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_lisp
-.PHONY : nav_msgs_generate_messages_lisp
-
-# fast build rule for target.
-nav_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
-.PHONY : nav_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named actionlib_msgs_generate_messages_cpp
-
-# Build rule for target.
-actionlib_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_cpp
-.PHONY : actionlib_msgs_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
-.PHONY : actionlib_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named nav_msgs_generate_messages_py
-
-# Build rule for target.
-nav_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_py
-.PHONY : nav_msgs_generate_messages_py
-
-# fast build rule for target.
-nav_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/nav_msgs_generate_messages_py.dir/build.make CMakeFiles/nav_msgs_generate_messages_py.dir/build
-.PHONY : nav_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_lisp
-
-# Build rule for target.
-tf_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_lisp
-.PHONY : tf_generate_messages_lisp
-
-# fast build rule for target.
-tf_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/tf_generate_messages_lisp.dir/build.make CMakeFiles/tf_generate_messages_lisp.dir/build
-.PHONY : tf_generate_messages_lisp/fast
+download_extra_data/fast:
+	$(MAKE) -f CMakeFiles/download_extra_data.dir/build.make CMakeFiles/download_extra_data.dir/build
+.PHONY : download_extra_data/fast
 
 #=============================================================================
 # Target rules for targets named gmock_main
@@ -1467,59 +284,1188 @@ gtest/fast:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
-src/gazebo_edrone_propulsion.o: src/gazebo_edrone_propulsion.cpp.o
+#=============================================================================
+# Target rules for targets named gazebo_ros_gps
 
-.PHONY : src/gazebo_edrone_propulsion.o
+# Build rule for target.
+gazebo_ros_gps: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_gps
+.PHONY : gazebo_ros_gps
 
-# target to build an object file
-src/gazebo_edrone_propulsion.cpp.o:
-	$(MAKE) -f CMakeFiles/gazebo_edrone_propulsion.dir/build.make CMakeFiles/gazebo_edrone_propulsion.dir/src/gazebo_edrone_propulsion.cpp.o
-.PHONY : src/gazebo_edrone_propulsion.cpp.o
+# fast build rule for target.
+gazebo_ros_gps/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/gazebo_ros_gps.dir/build.make vitarana_drone/CMakeFiles/gazebo_ros_gps.dir/build
+.PHONY : gazebo_ros_gps/fast
 
-src/gazebo_edrone_propulsion.i: src/gazebo_edrone_propulsion.cpp.i
+#=============================================================================
+# Target rules for targets named gazebo_edrone_propulsion
 
-.PHONY : src/gazebo_edrone_propulsion.i
+# Build rule for target.
+gazebo_edrone_propulsion: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_edrone_propulsion
+.PHONY : gazebo_edrone_propulsion
 
-# target to preprocess a source file
-src/gazebo_edrone_propulsion.cpp.i:
-	$(MAKE) -f CMakeFiles/gazebo_edrone_propulsion.dir/build.make CMakeFiles/gazebo_edrone_propulsion.dir/src/gazebo_edrone_propulsion.cpp.i
-.PHONY : src/gazebo_edrone_propulsion.cpp.i
+# fast build rule for target.
+gazebo_edrone_propulsion/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/gazebo_edrone_propulsion.dir/build.make vitarana_drone/CMakeFiles/gazebo_edrone_propulsion.dir/build
+.PHONY : gazebo_edrone_propulsion/fast
 
-src/gazebo_edrone_propulsion.s: src/gazebo_edrone_propulsion.cpp.s
+#=============================================================================
+# Target rules for targets named vitarana_drone_gencfg
 
-.PHONY : src/gazebo_edrone_propulsion.s
+# Build rule for target.
+vitarana_drone_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_gencfg
+.PHONY : vitarana_drone_gencfg
 
-# target to generate assembly for a file
-src/gazebo_edrone_propulsion.cpp.s:
-	$(MAKE) -f CMakeFiles/gazebo_edrone_propulsion.dir/build.make CMakeFiles/gazebo_edrone_propulsion.dir/src/gazebo_edrone_propulsion.cpp.s
-.PHONY : src/gazebo_edrone_propulsion.cpp.s
+# fast build rule for target.
+vitarana_drone_gencfg/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_gencfg.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_gencfg.dir/build
+.PHONY : vitarana_drone_gencfg/fast
 
-src/gazebo_ros_gps.o: src/gazebo_ros_gps.cpp.o
+#=============================================================================
+# Target rules for targets named vitarana_drone_generate_messages_py
 
-.PHONY : src/gazebo_ros_gps.o
+# Build rule for target.
+vitarana_drone_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages_py
+.PHONY : vitarana_drone_generate_messages_py
 
-# target to build an object file
-src/gazebo_ros_gps.cpp.o:
-	$(MAKE) -f CMakeFiles/gazebo_ros_gps.dir/build.make CMakeFiles/gazebo_ros_gps.dir/src/gazebo_ros_gps.cpp.o
-.PHONY : src/gazebo_ros_gps.cpp.o
+# fast build rule for target.
+vitarana_drone_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/build
+.PHONY : vitarana_drone_generate_messages_py/fast
 
-src/gazebo_ros_gps.i: src/gazebo_ros_gps.cpp.i
+#=============================================================================
+# Target rules for targets named vitarana_drone_gennodejs
 
-.PHONY : src/gazebo_ros_gps.i
+# Build rule for target.
+vitarana_drone_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_gennodejs
+.PHONY : vitarana_drone_gennodejs
 
-# target to preprocess a source file
-src/gazebo_ros_gps.cpp.i:
-	$(MAKE) -f CMakeFiles/gazebo_ros_gps.dir/build.make CMakeFiles/gazebo_ros_gps.dir/src/gazebo_ros_gps.cpp.i
-.PHONY : src/gazebo_ros_gps.cpp.i
+# fast build rule for target.
+vitarana_drone_gennodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_gennodejs.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_gennodejs.dir/build
+.PHONY : vitarana_drone_gennodejs/fast
 
-src/gazebo_ros_gps.s: src/gazebo_ros_gps.cpp.s
+#=============================================================================
+# Target rules for targets named vitarana_drone_generate_messages_lisp
 
-.PHONY : src/gazebo_ros_gps.s
+# Build rule for target.
+vitarana_drone_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages_lisp
+.PHONY : vitarana_drone_generate_messages_lisp
 
-# target to generate assembly for a file
-src/gazebo_ros_gps.cpp.s:
-	$(MAKE) -f CMakeFiles/gazebo_ros_gps.dir/build.make CMakeFiles/gazebo_ros_gps.dir/src/gazebo_ros_gps.cpp.s
-.PHONY : src/gazebo_ros_gps.cpp.s
+# fast build rule for target.
+vitarana_drone_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/build
+.PHONY : vitarana_drone_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named vitarana_drone_geneus
+
+# Build rule for target.
+vitarana_drone_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_geneus
+.PHONY : vitarana_drone_geneus
+
+# fast build rule for target.
+vitarana_drone_geneus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/build
+.PHONY : vitarana_drone_geneus/fast
+
+#=============================================================================
+# Target rules for targets named _vitarana_drone_generate_messages_check_deps_ImageFeatures
+
+# Build rule for target.
+_vitarana_drone_generate_messages_check_deps_ImageFeatures: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _vitarana_drone_generate_messages_check_deps_ImageFeatures
+.PHONY : _vitarana_drone_generate_messages_check_deps_ImageFeatures
+
+# fast build rule for target.
+_vitarana_drone_generate_messages_check_deps_ImageFeatures/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/build
+.PHONY : _vitarana_drone_generate_messages_check_deps_ImageFeatures/fast
+
+#=============================================================================
+# Target rules for targets named _vitarana_drone_generate_messages_check_deps_edrone_cmd
+
+# Build rule for target.
+_vitarana_drone_generate_messages_check_deps_edrone_cmd: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _vitarana_drone_generate_messages_check_deps_edrone_cmd
+.PHONY : _vitarana_drone_generate_messages_check_deps_edrone_cmd
+
+# fast build rule for target.
+_vitarana_drone_generate_messages_check_deps_edrone_cmd/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/build
+.PHONY : _vitarana_drone_generate_messages_check_deps_edrone_cmd/fast
+
+#=============================================================================
+# Target rules for targets named _vitarana_drone_generate_messages_check_deps_prop_speed
+
+# Build rule for target.
+_vitarana_drone_generate_messages_check_deps_prop_speed: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _vitarana_drone_generate_messages_check_deps_prop_speed
+.PHONY : _vitarana_drone_generate_messages_check_deps_prop_speed
+
+# fast build rule for target.
+_vitarana_drone_generate_messages_check_deps_prop_speed/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_prop_speed.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_prop_speed.dir/build
+.PHONY : _vitarana_drone_generate_messages_check_deps_prop_speed/fast
+
+#=============================================================================
+# Target rules for targets named vitarana_drone_generate_messages
+
+# Build rule for target.
+vitarana_drone_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages
+.PHONY : vitarana_drone_generate_messages
+
+# fast build rule for target.
+vitarana_drone_generate_messages/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages.dir/build
+.PHONY : vitarana_drone_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_gencfg
+
+# Build rule for target.
+dynamic_reconfigure_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_gencfg
+.PHONY : dynamic_reconfigure_gencfg
+
+# fast build rule for target.
+dynamic_reconfigure_gencfg/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make vitarana_drone/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
+.PHONY : dynamic_reconfigure_gencfg/fast
+
+#=============================================================================
+# Target rules for targets named vitarana_drone_generate_messages_eus
+
+# Build rule for target.
+vitarana_drone_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages_eus
+.PHONY : vitarana_drone_generate_messages_eus
+
+# fast build rule for target.
+vitarana_drone_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/build
+.PHONY : vitarana_drone_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_cpp
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_cpp
+.PHONY : dynamic_reconfigure_generate_messages_cpp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named vitarana_drone_generate_messages_nodejs
+
+# Build rule for target.
+vitarana_drone_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages_nodejs
+.PHONY : vitarana_drone_generate_messages_nodejs
+
+# fast build rule for target.
+vitarana_drone_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/build
+.PHONY : vitarana_drone_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named tf2_msgs_generate_messages_nodejs
+
+# Build rule for target.
+tf2_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_nodejs
+.PHONY : tf2_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+tf2_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
+.PHONY : tf2_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named tf2_msgs_generate_messages_lisp
+
+# Build rule for target.
+tf2_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_lisp
+.PHONY : tf2_msgs_generate_messages_lisp
+
+# fast build rule for target.
+tf2_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
+.PHONY : tf2_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_lisp
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_lisp
+.PHONY : dynamic_reconfigure_generate_messages_lisp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named tf2_msgs_generate_messages_cpp
+
+# Build rule for target.
+tf2_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_cpp
+.PHONY : tf2_msgs_generate_messages_cpp
+
+# fast build rule for target.
+tf2_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
+.PHONY : tf2_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_py
+
+# Build rule for target.
+actionlib_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_py
+.PHONY : actionlib_generate_messages_py
+
+# fast build rule for target.
+actionlib_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/actionlib_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/actionlib_generate_messages_py.dir/build
+.PHONY : actionlib_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_nodejs
+
+# Build rule for target.
+actionlib_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_nodejs
+.PHONY : actionlib_generate_messages_nodejs
+
+# fast build rule for target.
+actionlib_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
+.PHONY : actionlib_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_lisp
+
+# Build rule for target.
+std_srvs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_lisp
+.PHONY : std_srvs_generate_messages_lisp
+
+# fast build rule for target.
+std_srvs_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
+.PHONY : std_srvs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_eus
+
+# Build rule for target.
+std_srvs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_eus
+.PHONY : std_srvs_generate_messages_eus
+
+# fast build rule for target.
+std_srvs_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/std_srvs_generate_messages_eus.dir/build
+.PHONY : std_srvs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_cpp
+
+# Build rule for target.
+roscpp_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_cpp
+.PHONY : roscpp_generate_messages_cpp
+
+# fast build rule for target.
+roscpp_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+.PHONY : roscpp_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_cpp
+
+# Build rule for target.
+std_srvs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_cpp
+.PHONY : std_srvs_generate_messages_cpp
+
+# fast build rule for target.
+std_srvs_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+.PHONY : std_srvs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named gazebo_msgs_generate_messages_py
+
+# Build rule for target.
+gazebo_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_py
+.PHONY : gazebo_msgs_generate_messages_py
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build
+.PHONY : gazebo_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_cpp
+
+# Build rule for target.
+std_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
+.PHONY : std_msgs_generate_messages_cpp
+
+# fast build rule for target.
+std_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_nodejs
+
+# Build rule for target.
+sensor_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_nodejs
+.PHONY : sensor_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+sensor_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+.PHONY : sensor_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_eus
+
+# Build rule for target.
+sensor_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_eus
+.PHONY : sensor_msgs_generate_messages_eus
+
+# fast build rule for target.
+sensor_msgs_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
+.PHONY : sensor_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_lisp
+
+# Build rule for target.
+sensor_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_lisp
+.PHONY : sensor_msgs_generate_messages_lisp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+.PHONY : sensor_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named gazebo_ros_gencfg
+
+# Build rule for target.
+gazebo_ros_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_ros_gencfg
+.PHONY : gazebo_ros_gencfg
+
+# fast build rule for target.
+gazebo_ros_gencfg/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/gazebo_ros_gencfg.dir/build.make vitarana_drone/CMakeFiles/gazebo_ros_gencfg.dir/build
+.PHONY : gazebo_ros_gencfg/fast
+
+#=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_py
+
+# Build rule for target.
+geometry_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_py
+.PHONY : geometry_msgs_generate_messages_py
+
+# fast build rule for target.
+geometry_msgs_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+.PHONY : geometry_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named tf2_msgs_generate_messages_eus
+
+# Build rule for target.
+tf2_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_eus
+.PHONY : tf2_msgs_generate_messages_eus
+
+# fast build rule for target.
+tf2_msgs_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
+.PHONY : tf2_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_py
+
+# Build rule for target.
+sensor_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_py
+.PHONY : sensor_msgs_generate_messages_py
+
+# fast build rule for target.
+sensor_msgs_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+.PHONY : sensor_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_eus
+
+# Build rule for target.
+geometry_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_eus
+.PHONY : geometry_msgs_generate_messages_eus
+
+# fast build rule for target.
+geometry_msgs_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+.PHONY : geometry_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_nodejs
+
+# Build rule for target.
+std_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_nodejs
+.PHONY : std_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+std_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+.PHONY : std_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_cpp
+
+# Build rule for target.
+geometry_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_cpp
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+.PHONY : geometry_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_lisp
+
+# Build rule for target.
+trajectory_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_lisp
+.PHONY : trajectory_msgs_generate_messages_lisp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
+.PHONY : trajectory_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named _catkin_empty_exported_target
+
+# Build rule for target.
+_catkin_empty_exported_target: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
+.PHONY : _catkin_empty_exported_target
+
+# fast build rule for target.
+_catkin_empty_exported_target/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_catkin_empty_exported_target.dir/build.make vitarana_drone/CMakeFiles/_catkin_empty_exported_target.dir/build
+.PHONY : _catkin_empty_exported_target/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_lisp
+
+# Build rule for target.
+roscpp_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_lisp
+.PHONY : roscpp_generate_messages_lisp
+
+# fast build rule for target.
+roscpp_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+.PHONY : roscpp_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_lisp
+
+# Build rule for target.
+actionlib_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_lisp
+.PHONY : actionlib_generate_messages_lisp
+
+# fast build rule for target.
+actionlib_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/actionlib_generate_messages_lisp.dir/build
+.PHONY : actionlib_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named gazebo_msgs_generate_messages_cpp
+
+# Build rule for target.
+gazebo_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_cpp
+.PHONY : gazebo_msgs_generate_messages_cpp
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build
+.PHONY : gazebo_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_nodejs
+
+# Build rule for target.
+tf_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_nodejs
+.PHONY : tf_generate_messages_nodejs
+
+# fast build rule for target.
+tf_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/tf_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/tf_generate_messages_nodejs.dir/build
+.PHONY : tf_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named vitarana_drone_genlisp
+
+# Build rule for target.
+vitarana_drone_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_genlisp
+.PHONY : vitarana_drone_genlisp
+
+# fast build rule for target.
+vitarana_drone_genlisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_genlisp.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_genlisp.dir/build
+.PHONY : vitarana_drone_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_py
+
+# Build rule for target.
+std_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/std_msgs_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_nodejs
+
+# Build rule for target.
+trajectory_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_nodejs
+.PHONY : trajectory_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+.PHONY : trajectory_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named vitarana_drone_genpy
+
+# Build rule for target.
+vitarana_drone_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_genpy
+.PHONY : vitarana_drone_genpy
+
+# fast build rule for target.
+vitarana_drone_genpy/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_genpy.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_genpy.dir/build
+.PHONY : vitarana_drone_genpy/fast
+
+#=============================================================================
+# Target rules for targets named gazebo_msgs_generate_messages_nodejs
+
+# Build rule for target.
+gazebo_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_nodejs
+.PHONY : gazebo_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
+.PHONY : gazebo_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_lisp
+
+# Build rule for target.
+geometry_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_lisp
+.PHONY : geometry_msgs_generate_messages_lisp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+.PHONY : geometry_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_cpp
+
+# Build rule for target.
+tf_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_cpp
+.PHONY : tf_generate_messages_cpp
+
+# fast build rule for target.
+tf_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/tf_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/tf_generate_messages_cpp.dir/build
+.PHONY : tf_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_nodejs
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_nodejs
+.PHONY : dynamic_reconfigure_generate_messages_nodejs
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named tf2_msgs_generate_messages_py
+
+# Build rule for target.
+tf2_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_py
+.PHONY : tf2_msgs_generate_messages_py
+
+# fast build rule for target.
+tf2_msgs_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
+.PHONY : tf2_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named gazebo_msgs_generate_messages_lisp
+
+# Build rule for target.
+gazebo_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_lisp
+.PHONY : gazebo_msgs_generate_messages_lisp
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
+.PHONY : gazebo_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named vitarana_drone_generate_messages_cpp
+
+# Build rule for target.
+vitarana_drone_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_generate_messages_cpp
+.PHONY : vitarana_drone_generate_messages_cpp
+
+# fast build rule for target.
+vitarana_drone_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build
+.PHONY : vitarana_drone_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_cpp
+
+# Build rule for target.
+nav_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_cpp
+.PHONY : nav_msgs_generate_messages_cpp
+
+# fast build rule for target.
+nav_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
+.PHONY : nav_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_lisp
+
+# Build rule for target.
+std_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
+.PHONY : std_msgs_generate_messages_lisp
+
+# fast build rule for target.
+std_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_eus
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_eus
+.PHONY : dynamic_reconfigure_generate_messages_eus
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_nodejs
+
+# Build rule for target.
+geometry_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_nodejs
+.PHONY : geometry_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+geometry_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+.PHONY : geometry_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named gazebo_msgs_generate_messages_eus
+
+# Build rule for target.
+gazebo_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_msgs_generate_messages_eus
+.PHONY : gazebo_msgs_generate_messages_eus
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build
+.PHONY : gazebo_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named _vitarana_drone_generate_messages_check_deps_Gripper
+
+# Build rule for target.
+_vitarana_drone_generate_messages_check_deps_Gripper: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _vitarana_drone_generate_messages_check_deps_Gripper
+.PHONY : _vitarana_drone_generate_messages_check_deps_Gripper
+
+# fast build rule for target.
+_vitarana_drone_generate_messages_check_deps_Gripper/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_Gripper.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_Gripper.dir/build
+.PHONY : _vitarana_drone_generate_messages_check_deps_Gripper/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_cpp
+
+# Build rule for target.
+trajectory_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_cpp
+.PHONY : trajectory_msgs_generate_messages_cpp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
+.PHONY : trajectory_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_nodejs
+
+# Build rule for target.
+std_srvs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_nodejs
+.PHONY : std_srvs_generate_messages_nodejs
+
+# fast build rule for target.
+std_srvs_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
+.PHONY : std_srvs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_eus
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_eus
+.PHONY : rosgraph_msgs_generate_messages_eus
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+.PHONY : rosgraph_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named std_srvs_generate_messages_py
+
+# Build rule for target.
+std_srvs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_py
+.PHONY : std_srvs_generate_messages_py
+
+# fast build rule for target.
+std_srvs_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/std_srvs_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_eus
+
+# Build rule for target.
+roscpp_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_eus
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/roscpp_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_nodejs
+
+# Build rule for target.
+roscpp_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_nodejs
+.PHONY : roscpp_generate_messages_nodejs
+
+# fast build rule for target.
+roscpp_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+.PHONY : roscpp_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_eus
+
+# Build rule for target.
+trajectory_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_eus
+.PHONY : trajectory_msgs_generate_messages_eus
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
+.PHONY : trajectory_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_py
+
+# Build rule for target.
+roscpp_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_py
+.PHONY : roscpp_generate_messages_py
+
+# fast build rule for target.
+roscpp_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/roscpp_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/roscpp_generate_messages_py.dir/build
+.PHONY : roscpp_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_eus
+
+# Build rule for target.
+tf_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_eus
+.PHONY : tf_generate_messages_eus
+
+# fast build rule for target.
+tf_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/tf_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/tf_generate_messages_eus.dir/build
+.PHONY : tf_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_lisp
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_lisp
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_cpp
+
+# Build rule for target.
+sensor_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_cpp
+.PHONY : sensor_msgs_generate_messages_cpp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+.PHONY : sensor_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_nodejs
+
+# Build rule for target.
+nav_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_nodejs
+.PHONY : nav_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+nav_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
+.PHONY : nav_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named dynamic_reconfigure_generate_messages_py
+
+# Build rule for target.
+dynamic_reconfigure_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dynamic_reconfigure_generate_messages_py
+.PHONY : dynamic_reconfigure_generate_messages_py
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_msgs_generate_messages_eus
+
+# Build rule for target.
+actionlib_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_eus
+.PHONY : actionlib_msgs_generate_messages_eus
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
+.PHONY : actionlib_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_nodejs
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_nodejs
+.PHONY : rosgraph_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_msgs_generate_messages_py
+
+# Build rule for target.
+actionlib_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_py
+.PHONY : actionlib_msgs_generate_messages_py
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
+.PHONY : actionlib_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_cpp
+
+# Build rule for target.
+actionlib_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_cpp
+.PHONY : actionlib_generate_messages_cpp
+
+# fast build rule for target.
+actionlib_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/actionlib_generate_messages_cpp.dir/build
+.PHONY : actionlib_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named vitarana_drone_gencpp
+
+# Build rule for target.
+vitarana_drone_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone_gencpp
+.PHONY : vitarana_drone_gencpp
+
+# fast build rule for target.
+vitarana_drone_gencpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_gencpp.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_gencpp.dir/build
+.PHONY : vitarana_drone_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_py
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_py
+.PHONY : rosgraph_msgs_generate_messages_py
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+.PHONY : rosgraph_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_eus
+
+# Build rule for target.
+nav_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_eus
+.PHONY : nav_msgs_generate_messages_eus
+
+# fast build rule for target.
+nav_msgs_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
+.PHONY : nav_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_eus
+
+# Build rule for target.
+std_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_eus
+.PHONY : std_msgs_generate_messages_eus
+
+# fast build rule for target.
+std_msgs_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+.PHONY : std_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_msgs_generate_messages_nodejs
+
+# Build rule for target.
+actionlib_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_nodejs
+.PHONY : actionlib_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
+.PHONY : actionlib_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_py
+
+# Build rule for target.
+tf_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_py
+.PHONY : tf_generate_messages_py
+
+# fast build rule for target.
+tf_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/tf_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/tf_generate_messages_py.dir/build
+.PHONY : tf_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_msgs_generate_messages_lisp
+
+# Build rule for target.
+actionlib_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_lisp
+.PHONY : actionlib_msgs_generate_messages_lisp
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
+.PHONY : actionlib_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_lisp
+
+# Build rule for target.
+nav_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_lisp
+.PHONY : nav_msgs_generate_messages_lisp
+
+# fast build rule for target.
+nav_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
+.PHONY : nav_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_msgs_generate_messages_cpp
+
+# Build rule for target.
+actionlib_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_msgs_generate_messages_cpp
+.PHONY : actionlib_msgs_generate_messages_cpp
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
+.PHONY : actionlib_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_py
+
+# Build rule for target.
+trajectory_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_py
+.PHONY : trajectory_msgs_generate_messages_py
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
+.PHONY : trajectory_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_cpp
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_cpp
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named actionlib_generate_messages_eus
+
+# Build rule for target.
+actionlib_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 actionlib_generate_messages_eus
+.PHONY : actionlib_generate_messages_eus
+
+# fast build rule for target.
+actionlib_generate_messages_eus/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/actionlib_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/actionlib_generate_messages_eus.dir/build
+.PHONY : actionlib_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_py
+
+# Build rule for target.
+nav_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_py
+.PHONY : nav_msgs_generate_messages_py
+
+# fast build rule for target.
+nav_msgs_generate_messages_py/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/nav_msgs_generate_messages_py.dir/build
+.PHONY : nav_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_lisp
+
+# Build rule for target.
+tf_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_lisp
+.PHONY : tf_generate_messages_lisp
+
+# fast build rule for target.
+tf_generate_messages_lisp/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/tf_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/tf_generate_messages_lisp.dir/build
+.PHONY : tf_generate_messages_lisp/fast
 
 # Help Target
 help:
@@ -1528,9 +1474,21 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... doxygen"
+	@echo "... run_tests"
+	@echo "... clean_test_results"
+	@echo "... tests"
+	@echo "... download_extra_data"
+	@echo "... gmock_main"
+	@echo "... gmock"
+	@echo "... gtest_main"
+	@echo "... gtest"
 	@echo "... gazebo_ros_gps"
 	@echo "... gazebo_edrone_propulsion"
 	@echo "... vitarana_drone_gencfg"
@@ -1538,7 +1496,7 @@ help:
 	@echo "... vitarana_drone_gennodejs"
 	@echo "... vitarana_drone_generate_messages_lisp"
 	@echo "... vitarana_drone_geneus"
-	@echo "... _vitarana_drone_generate_messages_check_deps_image_features"
+	@echo "... _vitarana_drone_generate_messages_check_deps_ImageFeatures"
 	@echo "... _vitarana_drone_generate_messages_check_deps_edrone_cmd"
 	@echo "... _vitarana_drone_generate_messages_check_deps_prop_speed"
 	@echo "... vitarana_drone_generate_messages"
@@ -1552,9 +1510,13 @@ help:
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_py"
 	@echo "... actionlib_generate_messages_nodejs"
-	@echo "... actionlib_generate_messages_cpp"
-	@echo "... tf_generate_messages_nodejs"
+	@echo "... std_srvs_generate_messages_lisp"
+	@echo "... std_srvs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_cpp"
+	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... gazebo_msgs_generate_messages_py"
+	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... gazebo_ros_gencfg"
@@ -1565,81 +1527,59 @@ help:
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_lisp"
+	@echo "... _catkin_empty_exported_target"
+	@echo "... roscpp_generate_messages_lisp"
+	@echo "... actionlib_generate_messages_lisp"
+	@echo "... gazebo_msgs_generate_messages_cpp"
+	@echo "... tf_generate_messages_nodejs"
+	@echo "... vitarana_drone_genlisp"
+	@echo "... std_msgs_generate_messages_py"
 	@echo "... trajectory_msgs_generate_messages_nodejs"
 	@echo "... vitarana_drone_genpy"
 	@echo "... gazebo_msgs_generate_messages_nodejs"
-	@echo "... vitarana_drone_genlisp"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... install"
-	@echo "... tests"
-	@echo "... actionlib_generate_messages_lisp"
-	@echo "... clean_test_results"
-	@echo "... _catkin_empty_exported_target"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... gazebo_msgs_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... std_srvs_generate_messages_nodejs"
+	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... tf_generate_messages_cpp"
 	@echo "... dynamic_reconfigure_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_py"
 	@echo "... gazebo_msgs_generate_messages_lisp"
 	@echo "... vitarana_drone_generate_messages_cpp"
 	@echo "... nav_msgs_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... nav_msgs_generate_messages_nodejs"
-	@echo "... dynamic_reconfigure_generate_messages_py"
-	@echo "... actionlib_msgs_generate_messages_eus"
-	@echo "... download_extra_data"
-	@echo "... doxygen"
-	@echo "... vitarana_drone_gencpp"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... gazebo_msgs_generate_messages_py"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... run_tests"
-	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... tf_generate_messages_eus"
-	@echo "... _vitarana_drone_generate_messages_check_deps_Gripper"
-	@echo "... trajectory_msgs_generate_messages_cpp"
+	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... dynamic_reconfigure_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... gazebo_msgs_generate_messages_eus"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... tf_generate_messages_cpp"
-	@echo "... edit_cache"
-	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_lisp"
+	@echo "... _vitarana_drone_generate_messages_check_deps_Gripper"
+	@echo "... trajectory_msgs_generate_messages_cpp"
+	@echo "... std_srvs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... std_srvs_generate_messages_py"
-	@echo "... actionlib_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_py"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
+	@echo "... tf_generate_messages_eus"
+	@echo "... rosgraph_msgs_generate_messages_lisp"
+	@echo "... sensor_msgs_generate_messages_cpp"
+	@echo "... nav_msgs_generate_messages_nodejs"
+	@echo "... dynamic_reconfigure_generate_messages_py"
+	@echo "... actionlib_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... actionlib_msgs_generate_messages_py"
-	@echo "... install/local"
+	@echo "... actionlib_generate_messages_cpp"
+	@echo "... vitarana_drone_gencpp"
+	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_eus"
-	@echo "... tf_generate_messages_py"
-	@echo "... actionlib_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_eus"
+	@echo "... actionlib_msgs_generate_messages_nodejs"
+	@echo "... tf_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... actionlib_msgs_generate_messages_cpp"
+	@echo "... trajectory_msgs_generate_messages_py"
+	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... actionlib_generate_messages_eus"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... tf_generate_messages_lisp"
-	@echo "... gmock_main"
-	@echo "... gmock"
-	@echo "... gtest_main"
-	@echo "... gtest"
-	@echo "... src/gazebo_edrone_propulsion.o"
-	@echo "... src/gazebo_edrone_propulsion.i"
-	@echo "... src/gazebo_edrone_propulsion.s"
-	@echo "... src/gazebo_ros_gps.o"
-	@echo "... src/gazebo_ros_gps.i"
-	@echo "... src/gazebo_ros_gps.s"
 .PHONY : help
 
 

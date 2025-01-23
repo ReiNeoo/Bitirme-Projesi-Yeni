@@ -1,0 +1,89 @@
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  6%] Built target vitarana_drone_gencfg
+[  6%] Built target std_msgs_generate_messages_py
+[  6%] Built target std_msgs_generate_messages_eus
+[  6%] Built target std_msgs_generate_messages_nodejs
+[  6%] Built target _vitarana_drone_generate_messages_check_deps_Gripper
+[  6%] Built target _vitarana_drone_generate_messages_check_deps_prop_speed
+[  6%] Built target _vitarana_drone_generate_messages_check_deps_ImageFeatures
+[  6%] Built target _vitarana_drone_generate_messages_check_deps_edrone_cmd
+[ 17%] Generating C++ code from vitarana_drone/Gripper.srv
+[ 34%] Built target vitarana_drone_generate_messages_py
+[ 34%] Generating C++ code from vitarana_drone/edrone_cmd.msg
+[ 51%] Built target vitarana_drone_generate_messages_eus
+[ 55%] Generating C++ code from vitarana_drone/ImageFeatures.msg
+[ 68%] Built target vitarana_drone_generate_messages_lisp
+[ 82%] Built target vitarana_drone_generate_messages_nodejs
+[ 86%] Generating C++ code from vitarana_drone/prop_speed.msg
+Traceback (most recent call last):
+  File "/opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py", line 49, in <module>
+    genmsg.template_tools.generate_from_command_line_options(
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 213, in generate_from_command_line_options
+    generate_from_file(argv[1], options.package, options.outdir, options.emdir, options.includepath, msg_template_dict, srv_template_dict)
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 156, in generate_from_file
+    _generate_srv_from_file(input_file, output_dir, template_dir, search_path, package_name, srv_template_dict, msg_template_dict)
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 109, in _generate_srv_from_file
+    _generate_from_spec(input_file,
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 77, in _generate_from_spec
+    interpreter = em.Interpreter(output=ofile, globals=g, options={em.RAW_OPT:True,em.BUFFERED_OPT:True})
+AttributeError: module 'em' has no attribute 'RAW_OPT'
+Traceback (most recent call last):
+  File "/opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py", line 49, in <module>
+    genmsg.template_tools.generate_from_command_line_options(
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 213, in generate_from_command_line_options
+    generate_from_file(argv[1], options.package, options.outdir, options.emdir, options.includepath, msg_template_dict, srv_template_dict)
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 154, in generate_from_file
+    _generate_msg_from_file(input_file, output_dir, template_dir, search_path, package_name, msg_template_dict)
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 93, in _generate_msg_from_file
+    _generate_from_spec(input_file,
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 77, in _generate_from_spec
+    interpreter = em.Interpreter(output=ofile, globals=g, options={em.RAW_OPT:True,em.BUFFERED_OPT:True})
+AttributeError: module 'em' has no attribute 'RAW_OPT'
+Traceback (most recent call last):
+  File "/opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py", line 49, in <module>
+    genmsg.template_tools.generate_from_command_line_options(
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 213, in generate_from_command_line_options
+    generate_from_file(argv[1], options.package, options.outdir, options.emdir, options.includepath, msg_template_dict, srv_template_dict)
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 154, in generate_from_file
+    _generate_msg_from_file(input_file, output_dir, template_dir, search_path, package_name, msg_template_dict)
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 93, in _generate_msg_from_file
+    _generate_from_spec(input_file,
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 77, in _generate_from_spec
+    interpreter = em.Interpreter(output=ofile, globals=g, options={em.RAW_OPT:True,em.BUFFERED_OPT:True})
+AttributeError: module 'em' has no attribute 'RAW_OPT'
+make[2]: *** [vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build.make:85: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/Gripper.h] Error 1
+make[2]: *** Deleting file '/home/esaddogan/edrone_ws/devel/include/vitarana_drone/Gripper.h'
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build.make:78: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/ImageFeatures.h] Error 1
+make[2]: *** Deleting file '/home/esaddogan/edrone_ws/devel/include/vitarana_drone/ImageFeatures.h'
+make[2]: *** [vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build.make:72: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/edrone_cmd.h] Error 1
+make[2]: *** Deleting file '/home/esaddogan/edrone_ws/devel/include/vitarana_drone/edrone_cmd.h'
+Traceback (most recent call last):
+  File "/opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py", line 49, in <module>
+    genmsg.template_tools.generate_from_command_line_options(
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 213, in generate_from_command_line_options
+    generate_from_file(argv[1], options.package, options.outdir, options.emdir, options.includepath, msg_template_dict, srv_template_dict)
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 154, in generate_from_file
+    _generate_msg_from_file(input_file, output_dir, template_dir, search_path, package_name, msg_template_dict)
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 93, in _generate_msg_from_file
+    _generate_from_spec(input_file,
+  File "/opt/ros/noetic/lib/python3/dist-packages/genmsg/template_tools.py", line 77, in _generate_from_spec
+    interpreter = em.Interpreter(output=ofile, globals=g, options={em.RAW_OPT:True,em.BUFFERED_OPT:True})
+AttributeError: module 'em' has no attribute 'RAW_OPT'
+make[2]: *** [vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build.make:66: /home/esaddogan/edrone_ws/devel/include/vitarana_drone/prop_speed.h] Error 1
+make[2]: *** Deleting file '/home/esaddogan/edrone_ws/devel/include/vitarana_drone/prop_speed.h'
+make[1]: *** [CMakeFiles/Makefile2:1951: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
+Base path: /home/esaddogan/edrone_ws
+Source space: /home/esaddogan/edrone_ws/src
+Build space: /home/esaddogan/edrone_ws/build
+Devel space: /home/esaddogan/edrone_ws/devel
+Install space: /home/esaddogan/edrone_ws/install
+####
+#### Running command: "make cmake_check_build_system" in "/home/esaddogan/edrone_ws/build"
+####
+####
+#### Running command: "make -j8 -l8" in "/home/esaddogan/edrone_ws/build"
+####
+Invoking "make -j8 -l8" failed
