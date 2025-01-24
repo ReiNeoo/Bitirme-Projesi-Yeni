@@ -2,6 +2,8 @@
 
 import rospy
 from std_msgs.msg import String
+from sensor_msgs.msg import NavSatFix, Imu
+
 
 import cv2
 import numpy as np
@@ -24,13 +26,24 @@ class ImageDetector:
 
         self.image_sub = rospy.Subscriber("/edrone/camera/image_raw", Image, self.image_callback)
         self.detected_object_feature_pub = rospy.Publisher("/edrone/camera/object_feature", ImageFeatures, queue_size=10)
+        
+        rospy.Subscriber("edrone/imu/data", Imu, self.imu_callback)
+        rospy.Subscriber("edrone/gps", NavSatFix, self.gps_callback)
+        
         self.bridge = CvBridge()
-        self.model = YOLO(r'/home/esaddogan/edrone_ws/src/vitarana_drone/ai_models/last.pt')
+        self.model = YOLO(r'/home/esaddogan/edrone_ws/src/vitarana_drone/ai_models/best.pt')
         self.rate = rospy.Rate(3)
 
         self.box_corners = (0, 0, 0, 0)
         self.x_center = 0
         self.y_center = 0
+
+    def imu_callback(self, data):
+        pass
+
+    def gps_callback(self, data):
+        pass
+
 
     def _pass(self):
         pass

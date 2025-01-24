@@ -35,12 +35,12 @@
       </inertial>
       <sensor type="camera" name="camera">
         <pose>0 0 0 0 0.34 0</pose>
-        <update_rate>30.0</update_rate>
+        <update_rate>3.0</update_rate>
         <camera name="head">
           <horizontal_fov>1.3962634</horizontal_fov>
           <image>
-            <width>400</width>
-            <height>400</height>
+            <width>320</width>
+            <height>240</height>
             <format>R8G8B8</format>
           </image>
           <clip>

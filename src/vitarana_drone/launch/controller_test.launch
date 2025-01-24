@@ -19,5 +19,7 @@
 	<node pkg="vitarana_drone" type="attitude_controller.py" name="attitude_controller" output="screen"/>
 
 	<node pkg="vitarana_drone" type="refactored_drone_controller.py" name="refactored_drone_controller" output="screen"/>
+	
+	<node pkg="vitarana_drone" type="waypoint_controller.py" name="waypoint_controller" output="screen"/>
 
 </launch>

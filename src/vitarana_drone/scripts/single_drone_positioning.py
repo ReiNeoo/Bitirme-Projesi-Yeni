@@ -38,7 +38,6 @@ class SingleDronePositioning:
 
     def main(self):
         try:
-            print("SPININNG NOW")
             rospy.spin()
         except KeyboardInterrupt:
             rospy.loginfo("shutting down")

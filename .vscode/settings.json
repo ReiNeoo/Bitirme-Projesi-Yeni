@@ -1,3 +1,11 @@
 {
-    "cmake.sourceDirectory": "/home/esaddogan/edrone_ws/src/vitarana_drone"
+    "cmake.sourceDirectory": "/home/esaddogan/edrone_ws/src/vitarana_drone",
+    "python.autoComplete.extraPaths": [
+        "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
 }

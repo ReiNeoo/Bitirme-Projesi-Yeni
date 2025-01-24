@@ -19,7 +19,7 @@ import numpy as np
 import time
 import tf
 
-from vitarana_drone.src.queue_class import lineQueue
+from queue_class import lineQueue
 
 class Edrone():
     """docstring for Edrone"""
@@ -104,7 +104,24 @@ class Edrone():
         # rospy.Subscriber('/pid_tuning_roll', PidTune, self.roll_set_pid)        # for latitude
         # rospy.Subscriber('/pid_tuning_pitch', PidTune, self.pitch_set_pid)      # for longitude
         # rospy.Subscriber('/pid_tuning_yaw', PidTune, self.yaw_set_pid)          # for altitude
-    
+
+        self.target_x = 0.0
+        self.target_y = 0.0
+        self.target_z = 0.0 
+
+        self.target_waypoint_list = [self.target_x, self.target_y, self.target_z]
+
+        self.target_waypoint = rospy.Subscriber('/edrone/waypoint', TargetPosition, self.waypoint_callback)
+
+        self.waypoint_queue = lineQueue(100)
+
+    def waypoint_callback(self, msg):
+        self.target_x = msg.x
+        self.target_y = msg.y
+        self.target_z = msg.z
+        self.target_waypoint_list = [self.target_x, self.target_y, self.target_z]
+        self.waypoint_queue.enqueue(self.target_waypoint_list)
+        rospy.loginfo(f"Fetched Waypoint: x: {self.target_x}, y: {self.target_y}, z: {self.target_z}")
 
     # Imu callback function. The function gets executed each time when imu publishes /edrone/imu/data
     def imu_callback(self, msg):
@@ -285,23 +302,11 @@ def main():
     e_drone.pid()
     rospy.loginfo(f"Drone starting from: {gps_to_local(e_drone.drone_location)}")
 
-    waypoint_queue = lineQueue(5)
-    
-    waypoints = [
-        [0, 0, 5.0],
-        [5.0, 0, 5.0],
-        [10.0, 0, 5.0],
-        # [15.0, 10.0, 8.0],
-        # [20.0, 15.0, 5.0],
-        # [25.0, 15.0, 0.31],
-    ]
-    
     tolerance = [0.000004517, 0.0000047487, 0.2] 
 
-    # Navigate through waypoints
-    for waypoint in waypoints:
-        move_to_waypoint(e_drone, waypoint, tolerance)
-    
+    while not e_drone.waypoint_queue.is_empty():
+        move_to_waypoint(e_drone, e_drone.waypoint_queue.dequeue(), tolerance)
+
     # Shutdown sequence
     shutdown_cmd = {
         'rcRoll': 1500,
