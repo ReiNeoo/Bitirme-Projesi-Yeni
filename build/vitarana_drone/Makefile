@@ -273,6 +273,21 @@ vitarana_drone_geneus/fast:
 .PHONY : vitarana_drone_geneus/fast
 
 # Convenience name for target.
+vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/rule:
+	cd /home/esaddogan/edrone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/rule
+.PHONY : vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/rule
+
+# Convenience name for target.
+_vitarana_drone_generate_messages_check_deps_TargetGpsPosition: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/rule
+
+.PHONY : _vitarana_drone_generate_messages_check_deps_TargetGpsPosition
+
+# fast build rule for target.
+_vitarana_drone_generate_messages_check_deps_TargetGpsPosition/fast:
+	cd /home/esaddogan/edrone_ws/build && $(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/build
+.PHONY : _vitarana_drone_generate_messages_check_deps_TargetGpsPosition/fast
+
+# Convenience name for target.
 vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/rule:
 	cd /home/esaddogan/edrone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/rule
 .PHONY : vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/rule
@@ -931,6 +946,21 @@ tf_generate_messages_cpp: vitarana_drone/CMakeFiles/tf_generate_messages_cpp.dir
 tf_generate_messages_cpp/fast:
 	cd /home/esaddogan/edrone_ws/build && $(MAKE) -f vitarana_drone/CMakeFiles/tf_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/tf_generate_messages_cpp.dir/build
 .PHONY : tf_generate_messages_cpp/fast
+
+# Convenience name for target.
+vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/rule:
+	cd /home/esaddogan/edrone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/rule
+.PHONY : vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/rule
+
+# Convenience name for target.
+_vitarana_drone_generate_messages_check_deps_DetectionFeatures: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/rule
+
+.PHONY : _vitarana_drone_generate_messages_check_deps_DetectionFeatures
+
+# fast build rule for target.
+_vitarana_drone_generate_messages_check_deps_DetectionFeatures/fast:
+	cd /home/esaddogan/edrone_ws/build && $(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/build
+.PHONY : _vitarana_drone_generate_messages_check_deps_DetectionFeatures/fast
 
 # Convenience name for target.
 vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
@@ -1619,6 +1649,7 @@ help:
 	@echo "... vitarana_drone_gennodejs"
 	@echo "... vitarana_drone_generate_messages_lisp"
 	@echo "... vitarana_drone_geneus"
+	@echo "... _vitarana_drone_generate_messages_check_deps_TargetGpsPosition"
 	@echo "... _vitarana_drone_generate_messages_check_deps_ImageFeatures"
 	@echo "... _vitarana_drone_generate_messages_check_deps_edrone_cmd"
 	@echo "... _vitarana_drone_generate_messages_check_deps_prop_speed"
@@ -1664,6 +1695,7 @@ help:
 	@echo "... gazebo_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... tf_generate_messages_cpp"
+	@echo "... _vitarana_drone_generate_messages_check_deps_DetectionFeatures"
 	@echo "... dynamic_reconfigure_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_py"
 	@echo "... gazebo_msgs_generate_messages_lisp"

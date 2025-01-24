@@ -1,3 +1,6 @@
-import roslib
+import tf.transformations
 
-roslib.load_manifest('vitarana_drone')
+quaternion = [0.7071, 0, 0.7071, 0]  # [x, y, z, w]
+euler_angles = tf.transformations.euler_from_quaternion(quaternion)
+
+print("Euler angles (radians):", euler_angles)

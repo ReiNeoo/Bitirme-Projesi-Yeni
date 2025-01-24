@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_DetectionFeatures.py"
   "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_ImageFeatures.py"
+  "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_TargetGpsPosition.py"
   "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_TargetPosition.py"
   "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/__init__.py"
   "/home/esaddogan/edrone_ws/devel/lib/python3/dist-packages/vitarana_drone/msg/_edrone_cmd.py"

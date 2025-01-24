@@ -57,6 +57,8 @@ vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddog
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/edrone_cmd.js
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/ImageFeatures.js
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/TargetPosition.js
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/DetectionFeatures.js
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/TargetGpsPosition.js
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/srv/Gripper.js
 
 
@@ -80,9 +82,19 @@ vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs: /home/esaddog
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from vitarana_drone/TargetPosition.msg"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg
 
+/home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/DetectionFeatures.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/DetectionFeatures.js: /home/esaddogan/edrone_ws/src/vitarana_drone/msg/DetectionFeatures.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from vitarana_drone/DetectionFeatures.msg"
+	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/DetectionFeatures.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg
+
+/home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/TargetGpsPosition.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/TargetGpsPosition.js: /home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetGpsPosition.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from vitarana_drone/TargetGpsPosition.msg"
+	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetGpsPosition.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg
+
 /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/srv/Gripper.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/srv/Gripper.js: /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from vitarana_drone/Gripper.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from vitarana_drone/Gripper.srv"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/srv
 
 vitarana_drone_generate_messages_nodejs: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs
@@ -90,6 +102,8 @@ vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/g
 vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/edrone_cmd.js
 vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/ImageFeatures.js
 vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/TargetPosition.js
+vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/DetectionFeatures.js
+vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/msg/TargetGpsPosition.js
 vitarana_drone_generate_messages_nodejs: /home/esaddogan/edrone_ws/devel/share/gennodejs/ros/vitarana_drone/srv/Gripper.js
 vitarana_drone_generate_messages_nodejs: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/build.make
 

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
+  "/home/esaddogan/edrone_ws/devel/include/vitarana_drone/DetectionFeatures.h"
   "/home/esaddogan/edrone_ws/devel/include/vitarana_drone/Gripper.h"
   "/home/esaddogan/edrone_ws/devel/include/vitarana_drone/ImageFeatures.h"
+  "/home/esaddogan/edrone_ws/devel/include/vitarana_drone/TargetGpsPosition.h"
   "/home/esaddogan/edrone_ws/devel/include/vitarana_drone/TargetPosition.h"
   "/home/esaddogan/edrone_ws/devel/include/vitarana_drone/edrone_cmd.h"
   "/home/esaddogan/edrone_ws/devel/include/vitarana_drone/prop_speed.h"

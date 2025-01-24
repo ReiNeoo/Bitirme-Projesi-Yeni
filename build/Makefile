@@ -376,6 +376,19 @@ vitarana_drone_geneus/fast:
 .PHONY : vitarana_drone_geneus/fast
 
 #=============================================================================
+# Target rules for targets named _vitarana_drone_generate_messages_check_deps_TargetGpsPosition
+
+# Build rule for target.
+_vitarana_drone_generate_messages_check_deps_TargetGpsPosition: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _vitarana_drone_generate_messages_check_deps_TargetGpsPosition
+.PHONY : _vitarana_drone_generate_messages_check_deps_TargetGpsPosition
+
+# fast build rule for target.
+_vitarana_drone_generate_messages_check_deps_TargetGpsPosition/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/build
+.PHONY : _vitarana_drone_generate_messages_check_deps_TargetGpsPosition/fast
+
+#=============================================================================
 # Target rules for targets named _vitarana_drone_generate_messages_check_deps_ImageFeatures
 
 # Build rule for target.
@@ -948,6 +961,19 @@ tf_generate_messages_cpp/fast:
 .PHONY : tf_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named _vitarana_drone_generate_messages_check_deps_DetectionFeatures
+
+# Build rule for target.
+_vitarana_drone_generate_messages_check_deps_DetectionFeatures: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _vitarana_drone_generate_messages_check_deps_DetectionFeatures
+.PHONY : _vitarana_drone_generate_messages_check_deps_DetectionFeatures
+
+# fast build rule for target.
+_vitarana_drone_generate_messages_check_deps_DetectionFeatures/fast:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/build
+.PHONY : _vitarana_drone_generate_messages_check_deps_DetectionFeatures/fast
+
+#=============================================================================
 # Target rules for targets named dynamic_reconfigure_generate_messages_nodejs
 
 # Build rule for target.
@@ -1509,6 +1535,7 @@ help:
 	@echo "... vitarana_drone_gennodejs"
 	@echo "... vitarana_drone_generate_messages_lisp"
 	@echo "... vitarana_drone_geneus"
+	@echo "... _vitarana_drone_generate_messages_check_deps_TargetGpsPosition"
 	@echo "... _vitarana_drone_generate_messages_check_deps_ImageFeatures"
 	@echo "... _vitarana_drone_generate_messages_check_deps_edrone_cmd"
 	@echo "... _vitarana_drone_generate_messages_check_deps_prop_speed"
@@ -1553,6 +1580,7 @@ help:
 	@echo "... gazebo_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... tf_generate_messages_cpp"
+	@echo "... _vitarana_drone_generate_messages_check_deps_DetectionFeatures"
 	@echo "... dynamic_reconfigure_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_py"
 	@echo "... gazebo_msgs_generate_messages_lisp"

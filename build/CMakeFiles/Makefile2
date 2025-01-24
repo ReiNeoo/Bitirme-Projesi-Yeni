@@ -156,6 +156,7 @@ vitarana_drone/clean: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages
 vitarana_drone/clean: vitarana_drone/CMakeFiles/vitarana_drone_gennodejs.dir/clean
 vitarana_drone/clean: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/clean
 vitarana_drone/clean: vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/clean
+vitarana_drone/clean: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/clean
 vitarana_drone/clean: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/clean
 vitarana_drone/clean: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/clean
 vitarana_drone/clean: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_prop_speed.dir/clean
@@ -200,6 +201,7 @@ vitarana_drone/clean: vitarana_drone/CMakeFiles/vitarana_drone_genpy.dir/clean
 vitarana_drone/clean: vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/clean
 vitarana_drone/clean: vitarana_drone/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 vitarana_drone/clean: vitarana_drone/CMakeFiles/tf_generate_messages_cpp.dir/clean
+vitarana_drone/clean: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/clean
 vitarana_drone/clean: vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/clean
 vitarana_drone/clean: vitarana_drone/CMakeFiles/tf2_msgs_generate_messages_py.dir/clean
 vitarana_drone/clean: vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/clean
@@ -500,7 +502,7 @@ vitarana_drone/CMakeFiles/gazebo_ros_gps.dir/all: vitarana_drone/CMakeFiles/vita
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/gazebo_ros_gps.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/gazebo_ros_gps.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/gazebo_ros_gps.dir/rule
@@ -527,7 +529,7 @@ vitarana_drone/CMakeFiles/gazebo_edrone_propulsion.dir/all: vitarana_drone/CMake
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/gazebo_edrone_propulsion.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/gazebo_edrone_propulsion.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/gazebo_edrone_propulsion.dir/rule
@@ -573,20 +575,22 @@ vitarana_drone/CMakeFiles/vitarana_drone_gencfg.dir/clean:
 # Target rules for target vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir
 
 # All Build rule for target.
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_prop_speed.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetPosition.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/all: vitarana_drone/CMakeFiles/std_msgs_generate_messages_py.dir/all
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_Gripper.dir/all
 	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/depend
 	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=36,37,38,39,40,41,42 "Built target vitarana_drone_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=44,45,46,47,48,49,50,51,52 "Built target vitarana_drone_generate_messages_py"
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_py.dir/rule
@@ -613,7 +617,7 @@ vitarana_drone/CMakeFiles/vitarana_drone_gennodejs.dir/all: vitarana_drone/CMake
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/vitarana_drone_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/vitarana_drone_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_gennodejs.dir/rule
@@ -632,20 +636,22 @@ vitarana_drone/CMakeFiles/vitarana_drone_gennodejs.dir/clean:
 # Target rules for target vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir
 
 # All Build rule for target.
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_prop_speed.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetPosition.dir/all
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/all: vitarana_drone/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_Gripper.dir/all
 	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/depend
 	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=26,27,28,29,30 "Built target vitarana_drone_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=30,31,32,33,34,35,36 "Built target vitarana_drone_generate_messages_lisp"
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_lisp.dir/rule
@@ -672,7 +678,7 @@ vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/all: vitarana_drone/CMakeFil
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/rule
@@ -686,6 +692,33 @@ vitarana_drone_geneus: vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/rule
 vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/clean:
 	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/clean
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_geneus.dir/clean
+
+#=============================================================================
+# Target rules for target vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir
+
+# All Build rule for target.
+vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/all:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/depend
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num= "Built target _vitarana_drone_generate_messages_check_deps_TargetGpsPosition"
+.PHONY : vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/all
+
+# Build rule for subdir invocation for target.
+vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
+.PHONY : vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/rule
+
+# Convenience name for target.
+_vitarana_drone_generate_messages_check_deps_TargetGpsPosition: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/rule
+
+.PHONY : _vitarana_drone_generate_messages_check_deps_TargetGpsPosition
+
+# clean rule for target.
+vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/clean:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/clean
+.PHONY : vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/clean
 
 #=============================================================================
 # Target rules for target vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir
@@ -784,7 +817,7 @@ vitarana_drone/CMakeFiles/vitarana_drone_generate_messages.dir/all: vitarana_dro
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 38
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_generate_messages.dir/rule
@@ -830,20 +863,22 @@ vitarana_drone/CMakeFiles/dynamic_reconfigure_gencfg.dir/clean:
 # Target rules for target vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir
 
 # All Build rule for target.
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_prop_speed.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetPosition.dir/all
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_Gripper.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/all: vitarana_drone/CMakeFiles/std_msgs_generate_messages_eus.dir/all
 	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/depend
 	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=20,21,22,23,24,25 "Built target vitarana_drone_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=22,23,24,25,26,27,28,29 "Built target vitarana_drone_generate_messages_eus"
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/rule
@@ -889,20 +924,22 @@ vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/clean:
 # Target rules for target vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir
 
 # All Build rule for target.
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_prop_speed.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/all: vitarana_drone/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetPosition.dir/all
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_Gripper.dir/all
 	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/depend
 	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=31,32,33,34,35 "Built target vitarana_drone_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=37,38,39,40,41,42,43 "Built target vitarana_drone_generate_messages_nodejs"
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_nodejs.dir/rule
@@ -1712,7 +1749,7 @@ vitarana_drone/CMakeFiles/vitarana_drone_genlisp.dir/all: vitarana_drone/CMakeFi
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/vitarana_drone_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/vitarana_drone_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_genlisp.dir/rule
@@ -1793,7 +1830,7 @@ vitarana_drone/CMakeFiles/vitarana_drone_genpy.dir/all: vitarana_drone/CMakeFile
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/vitarana_drone_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/vitarana_drone_genpy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_genpy.dir/rule
@@ -1890,6 +1927,33 @@ vitarana_drone/CMakeFiles/tf_generate_messages_cpp.dir/clean:
 .PHONY : vitarana_drone/CMakeFiles/tf_generate_messages_cpp.dir/clean
 
 #=============================================================================
+# Target rules for target vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir
+
+# All Build rule for target.
+vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/all:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/depend
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num= "Built target _vitarana_drone_generate_messages_check_deps_DetectionFeatures"
+.PHONY : vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/all
+
+# Build rule for subdir invocation for target.
+vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
+.PHONY : vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/rule
+
+# Convenience name for target.
+_vitarana_drone_generate_messages_check_deps_DetectionFeatures: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/rule
+
+.PHONY : _vitarana_drone_generate_messages_check_deps_DetectionFeatures
+
+# clean rule for target.
+vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/clean:
+	$(MAKE) -f vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/build.make vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/clean
+.PHONY : vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/clean
+
+#=============================================================================
 # Target rules for target vitarana_drone/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir
 
 # All Build rule for target.
@@ -1974,20 +2038,22 @@ vitarana_drone/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/clean:
 # Target rules for target vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir
 
 # All Build rule for target.
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetGpsPosition.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_ImageFeatures.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_edrone_cmd.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_prop_speed.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/all: vitarana_drone/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_TargetPosition.dir/all
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_DetectionFeatures.dir/all
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/all: vitarana_drone/CMakeFiles/_vitarana_drone_generate_messages_check_deps_Gripper.dir/all
 	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/depend
 	$(MAKE) -f vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build.make vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=15,16,17,18,19 "Built target vitarana_drone_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=15,16,17,18,19,20,21 "Built target vitarana_drone_generate_messages_cpp"
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_cpp.dir/rule
@@ -2635,7 +2701,7 @@ vitarana_drone/CMakeFiles/vitarana_drone_gencpp.dir/all: vitarana_drone/CMakeFil
 
 # Build rule for subdir invocation for target.
 vitarana_drone/CMakeFiles/vitarana_drone_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 vitarana_drone/CMakeFiles/vitarana_drone_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/esaddogan/edrone_ws/build/CMakeFiles 0
 .PHONY : vitarana_drone/CMakeFiles/vitarana_drone_gencpp.dir/rule

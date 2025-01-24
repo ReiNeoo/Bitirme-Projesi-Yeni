@@ -1,8 +1,12 @@
 (cl:defpackage vitarana_drone-msg
   (:use )
   (:export
+   "<DETECTIONFEATURES>"
+   "DETECTIONFEATURES"
    "<IMAGEFEATURES>"
    "IMAGEFEATURES"
+   "<TARGETGPSPOSITION>"
+   "TARGETGPSPOSITION"
    "<TARGETPOSITION>"
    "TARGETPOSITION"
    "<EDRONE_CMD>"

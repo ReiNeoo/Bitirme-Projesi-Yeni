@@ -37,6 +37,8 @@ add_message_files(
    edrone_cmd.msg
    ImageFeatures.msg
    TargetPosition.msg
+   DetectionFeatures.msg
+   TargetGpsPosition.msg
 )
 
 ## Generate services in the 'srv' folder

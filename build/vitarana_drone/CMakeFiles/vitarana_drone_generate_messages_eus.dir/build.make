@@ -57,6 +57,8 @@ vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus: /home/esaddogan/
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/edrone_cmd.l
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/ImageFeatures.l
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/TargetPosition.l
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/DetectionFeatures.l
+vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/TargetGpsPosition.l
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/srv/Gripper.l
 vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/manifest.l
 
@@ -81,13 +83,23 @@ vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus: /home/esaddogan/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from vitarana_drone/TargetPosition.msg"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetPosition.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg
 
+/home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/DetectionFeatures.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/DetectionFeatures.l: /home/esaddogan/edrone_ws/src/vitarana_drone/msg/DetectionFeatures.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from vitarana_drone/DetectionFeatures.msg"
+	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/DetectionFeatures.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg
+
+/home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/TargetGpsPosition.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/TargetGpsPosition.l: /home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetGpsPosition.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from vitarana_drone/TargetGpsPosition.msg"
+	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/esaddogan/edrone_ws/src/vitarana_drone/msg/TargetGpsPosition.msg -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg
+
 /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/srv/Gripper.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/srv/Gripper.l: /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from vitarana_drone/Gripper.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from vitarana_drone/Gripper.srv"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/esaddogan/edrone_ws/src/vitarana_drone/srv/Gripper.srv -Ivitarana_drone:/home/esaddogan/edrone_ws/src/vitarana_drone/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p vitarana_drone -o /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/srv
 
 /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp manifest code for vitarana_drone"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/esaddogan/edrone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp manifest code for vitarana_drone"
 	cd /home/esaddogan/edrone_ws/build/vitarana_drone && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone vitarana_drone std_msgs
 
 vitarana_drone_generate_messages_eus: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus
@@ -95,6 +107,8 @@ vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/rose
 vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/edrone_cmd.l
 vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/ImageFeatures.l
 vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/TargetPosition.l
+vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/DetectionFeatures.l
+vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/msg/TargetGpsPosition.l
 vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/srv/Gripper.l
 vitarana_drone_generate_messages_eus: /home/esaddogan/edrone_ws/devel/share/roseus/ros/vitarana_drone/manifest.l
 vitarana_drone_generate_messages_eus: vitarana_drone/CMakeFiles/vitarana_drone_generate_messages_eus.dir/build.make
