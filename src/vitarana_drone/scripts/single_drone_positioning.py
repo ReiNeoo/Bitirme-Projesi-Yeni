@@ -53,7 +53,7 @@ class SingleDronePositioning(SingleDronePositioningUtils):
         self.condition_pub = rospy.Publisher("/edrone/condition", String, queue_size=10)
 
         self.image_features_sub = rospy.Subscriber("/edrone/camera/object_feature", DetectionFeatures, self.image_features_callback)
-        self.target_position_pub = rospy.Publisher("/edrone/camera/target_position", TargetGpsPosition, queue_size=10)
+        self.target_position_pub = rospy.Publisher("/edrone/target_position", TargetGpsPosition, queue_size=10)
         
         self.target_location_timer = rospy.Timer(rospy.Duration(1), self.publish_object_position)
         self.object_locator = ObjectGPSLocator(self.camera_featrues)
@@ -68,7 +68,6 @@ class SingleDronePositioning(SingleDronePositioningUtils):
 
     def condition_publish(self, condition):
         self.condition_pub.publish(condition)
-        rospy.loginfo("Target Detector Node Condition: %s", condition)
         self.rate.sleep()
 
     def image_features_callback(self, data):
