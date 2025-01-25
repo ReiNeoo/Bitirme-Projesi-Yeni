@@ -25,7 +25,7 @@ class WaypointController:
         self.attack_point_sub = rospy.Subscriber("/edrone/target_position",TargetGpsPosition, self.attack_point_callback)
 
         # Timer for hover publishing
-        self.hover_timer = rospy.Timer(rospy.Duration(0.1), self.hover_callback)  # 3 Hz
+        self.hover_timer = rospy.Timer(rospy.Duration(0.33), self.hover_callback)  # 3 Hz
 
     def hover_callback(self, event):
         if self.condition_flag == "hover":
@@ -42,7 +42,7 @@ class WaypointController:
         rospy.loginfo("Attack point detected...")
         # if self.condition_callback == "attack":
         rospy.loginfo("ATTACKING ENEMY...")
-        self.waypoint_x = data.longitude
+        self.waypoint_x = data.longitude + 5.0
         self.waypoint_y = data.latitude
         self.waypoint_z = 1.0
 
