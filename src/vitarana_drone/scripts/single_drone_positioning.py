@@ -5,12 +5,15 @@ from std_msgs.msg import String
 from math import cos, radians
 
 from vitarana_drone.msg import DetectionFeatures, TargetGpsPosition
-from calculate_location_detected_object import ObjectGPSLocator
+from calculate_detected_object_location import ObjectGPSLocator
 
 class SingleDronePositioningUtils:
     def __init__(self):
         pass
     
+    def _pass(self):
+        pass
+
     def local_to_gps(self, long, lat) -> tuple:
         origin_lat = 19.0
         origin_lon = 72.0
@@ -50,22 +53,22 @@ class SingleDronePositioning(SingleDronePositioningUtils):
         self.condition_pub = rospy.Publisher("/edrone/condition", String, queue_size=10)
 
         self.image_features_sub = rospy.Subscriber("/edrone/camera/object_feature", DetectionFeatures, self.image_features_callback)
-        self.object_position_pub = rospy.Publisher("/edrone/camera/object_position", TargetGpsPosition, queue_size=10)
+        self.target_position_pub = rospy.Publisher("/edrone/camera/target_position", TargetGpsPosition, queue_size=10)
         
         self.target_location_timer = rospy.Timer(rospy.Duration(1), self.publish_object_position)
-
         self.object_locator = ObjectGPSLocator(self.camera_featrues)
 
         self.rate = rospy.Rate(1)
-
 
         rospy.loginfo("Single Drone Positioning Node Initialized")
 
     def condition_callback(self, data):
         self.condition_flag = data.data
+        rospy.loginfo("Target Detector Node Condition: %s", self.condition_flag)
 
     def condition_publish(self, condition):
         self.condition_pub.publish(condition)
+        rospy.loginfo("Target Detector Node Condition: %s", condition)
         self.rate.sleep()
 
     def image_features_callback(self, data):
@@ -83,15 +86,15 @@ class SingleDronePositioning(SingleDronePositioningUtils):
         self.drone_orientation[2] = data.yaw
 
         # rospy.loginfo("Image features message received")
-
-        rospy.loginfo("Drone Latitude: %f, Drone Longitude: %f, Drone Height: %f", self.drone_position[0], self.drone_position[1], self.drone_height)
+        # _lat, _lon = self.gps_to_local(self.drone_position)
+        # rospy.loginfo("BBox height: %f, Drone Latitude: %f, Drone Longitude: %f, Drone Height: %f", self.bounding_box[3], _lat, _lon, self.drone_height)
 
         self.detection_flag = True
         self.rate.sleep()
 
     def publish_object_position(self, event):
-        if self.detection_flag:
-            rospy.loginfo("Publishing object position")
+        if self.detection_flag and (self.condition_flag == "hover") and (self.drone_height > 4.7):
+            # rospy.loginfo("Publishing object position")
             drone_state = {
             'height': self.drone_height,
             'gps_lat': self.drone_position[0],
@@ -100,12 +103,13 @@ class SingleDronePositioning(SingleDronePositioningUtils):
             'roll': self.drone_orientation[1],
             'yaw': self.drone_orientation[2]}
 
-            longitude, latitude = self.object_locator.calculate_object_position(self.bounding_box, 2.0, drone_state)
+            longitude, latitude = self.object_locator.calculate_object_position(self.bounding_box, 2.3, drone_state)
             lon_lat_list = [longitude, latitude]
             longitude, latitude = self.gps_to_local(lon_lat_list)
 
-            self.object_position_pub.publish(longitude, latitude)
+            self.target_position_pub.publish(longitude, latitude)
             rospy.loginfo("Object position published: %f, %f", longitude, latitude)
+            self.condition_publish("attack")
             self.rate.sleep()
 
    

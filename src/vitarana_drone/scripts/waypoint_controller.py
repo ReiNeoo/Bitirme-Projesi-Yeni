@@ -53,7 +53,7 @@ class WaypointController:
 
     def condition_publish(self, condition):
         self.condition_pub.publish(condition)
-        rospy.loginfo("Condition: %s", condition)
+        rospy.loginfo("Way Point Controller Condition: %s", condition)
 
     def takeoff(self):
         rospy.loginfo("Takeing off")

@@ -22,4 +22,8 @@
 	
 	<node pkg="vitarana_drone" type="waypoint_controller.py" name="waypoint_controller" output="screen"/>
 
+	<node pkg="vitarana_drone" type="custom_camera_detect_node.py" name="custom_camera_detect_node" output="screen"/>
+
+    <node pkg="vitarana_drone" type="single_drone_positioning.py" name="single_drone_positioning" output="screen"/>
+
 </launch>

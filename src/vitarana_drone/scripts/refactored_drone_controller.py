@@ -19,7 +19,7 @@ import numpy as np
 import time
 import tf
 
-from queue_class import lineQueue
+from queue_class import lineQueue 
 
 class Edrone():
     """docstring for Edrone"""
@@ -121,7 +121,7 @@ class Edrone():
         self.target_z = msg.z
         self.target_waypoint_list = [self.target_x, self.target_y, self.target_z]
         self.waypoint_queue.enqueue(self.target_waypoint_list)
-        rospy.loginfo(f"Fetched Waypoint: x: {self.target_x}, y: {self.target_y}, z: {self.target_z}")
+        # rospy.loginfo(f"Fetched Waypoint: x: {self.target_x}, y: {self.target_y}, z: {self.target_z}")
 
     # Imu callback function. The function gets executed each time when imu publishes /edrone/imu/data
     def imu_callback(self, msg):
@@ -279,7 +279,7 @@ def move_to_waypoint(drone, target_location, tolerance):
         drone.pid()
         time.sleep(0.05)
     
-    rospy.loginfo(f"Drone reached position: {gps_to_local(drone.drone_location)}")
+    # rospy.loginfo(f"Drone reached position: {gps_to_local(drone.drone_location)}")
 
 def is_within_tolerance(current_pos, target_pos, tolerance):
     """

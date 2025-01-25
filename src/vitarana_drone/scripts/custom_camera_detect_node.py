@@ -79,7 +79,7 @@ class ImageDetector(ImageProcessUtils):
         self.drone_orientation_quaternion[3] = data.orientation.w
         (self.imu_orientation[0], self.imu_orientation[1], self.imu_orientation[2]) = tf.transformations.euler_from_quaternion([self.drone_orientation_quaternion[0], self.drone_orientation_quaternion[1], self.drone_orientation_quaternion[2], self.drone_orientation_quaternion[3]])
         # rospy.loginfo("IMU data received: {}".format(self.imu_orientation))
-        self.rate.sleep()
+        # self.rate.sleep()
 
     def gps_callback(self, data):
         self.gps_position[0] = data.latitude
@@ -97,15 +97,16 @@ class ImageDetector(ImageProcessUtils):
 
     def image_callback(self, data):  
         image = self.bridge.imgmsg_to_cv2(data, "bgr8")
-        result = self.model(image)
+        if (self.condition_flag == "hover") and (self.gps_position[2] > 4.7):
+            result = self.model(image)
 
-        for box in result[0].boxes:
-            self.box_corners, obj_id, obj_cls, conf = self._get_box_features(box)
-            self.x_center, self.y_center = self._get_box_center(self.box_corners)
+            for box in result[0].boxes:
+                self.box_corners, obj_id, obj_cls, conf = self._get_box_features(box)
+                self.x_center, self.y_center = self._get_box_center(self.box_corners)
 
-            cv2.rectangle(image, (self.box_corners[0], self.box_corners[1]), (self.box_corners[2], self.box_corners[3]), (0, 255, 0), 1)
-            cv2.putText(image, f'{obj_cls} {conf:.2f}', (self.box_corners[0], self.box_corners[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 1)
-            
+                cv2.rectangle(image, (self.box_corners[0], self.box_corners[1]), (self.box_corners[2], self.box_corners[3]), (0, 255, 0), 1)
+                cv2.putText(image, f'{obj_cls} {conf:.2f}', (self.box_corners[0], self.box_corners[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 1)
+                
         cv2.imshow('camera_feed', image)
         cv2.waitKey(1)
 
