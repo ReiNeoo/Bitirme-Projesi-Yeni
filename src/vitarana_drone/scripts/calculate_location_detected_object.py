@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import numpy as np
-from math import tan, cos, sin, pi
+from math import tan, cos, sin, pi, radians
 
 class ObjectGPSLocator:
     def __init__(self, camera_params):
@@ -38,94 +38,71 @@ class ObjectGPSLocator:
         
         return horizontal_angle, vertical_angle
 
-    def calculate_ground_distance(self, vertical_angle, drone_height, drone_pitch):
-        """
-        Calculate the ground distance to the object using trigonometry.
-        This is the horizontal distance from the drone's position to the object.
-        """
-        # Camera angle relative to ground plane
-        camera_angle = pi/2 - drone_pitch
-        
-        # Total angle to target
+    def calculate_ground_distance(self, vertical_angle, drone_height, drone_pitch, object_height):
+        """Calculate ground distance considering object height."""
+        camera_angle = pi / 2 - drone_pitch
         total_angle = camera_angle + vertical_angle
-        
-        # Calculate ground distance using tangent
-        ground_distance = drone_height * tan(total_angle)
-        
+
+        adjusted_height = drone_height - (object_height / 2)
+        if adjusted_height <= 0:
+            raise ValueError("Adjusted height must be positive")
+
+        ground_distance = adjusted_height * tan(total_angle)
         return ground_distance
 
-    def meters_to_gps(self, lat, lon, d_north, d_east):
+    def local_to_gps(self, x_meters, y_meters) -> tuple:
         """
-        Convert north/east offsets in meters to GPS coordinates.
-        This is a simple approximation valid for relatively short distances.
-        
-        lat, lon: Starting position in degrees
-        d_north, d_east: Offsets in meters
-        Returns: new_lat, new_lon in degrees
+        Convert local cartesian coordinates to GPS coordinates.
+        x_meters: East-West distance (East positive)
+        y_meters: North-South distance (North positive)
         """
-        # Convert lat/lon to radians for calculations
-        lat_rad = np.radians(lat)
-        
-        # Calculate the length of a degree of latitude and longitude at this location
-        # These formulas are approximations that work well for small distances
-        meters_per_lat = 111132.92 - 559.82 * cos(2 * lat_rad) + 1.175 * cos(4 * lat_rad)
-        meters_per_lon = 111412.84 * cos(lat_rad) - 93.5 * cos(3 * lat_rad)
-        
-        # Convert offsets to degrees
-        d_lat = d_north / meters_per_lat
-        d_lon = d_east / meters_per_lon
-        
-        # Calculate new position
-        new_lat = lat + d_lat
-        new_lon = lon + d_lon
-        
-        return new_lat, new_lon
+        origin_lat = 19.0  # Change these to your reference point
+        origin_lon = 72.0
+
+        dlat = y_meters / 111319.9
+        dlon = x_meters / (111319.9 * cos(radians(origin_lat)))
+
+        lat = origin_lat + dlat
+        lon = origin_lon + dlon
+
+        return lat, lon
 
     def calculate_object_position(self, bbox, object_real_height, drone_state):
-        """
-        Calculate object's GPS position using current drone state and detected object information.
-        This function ties together all our calculations to determine where the object is located.
-        """
-        # Validate drone state parameters
+        """Calculate object's GPS position using drone state and detection."""
         required_params = ['height', 'gps_lat', 'gps_lon', 'pitch', 'roll', 'yaw']
         if not all(param in drone_state for param in required_params):
-            raise ValueError(f"Missing required drone state parameters. Required: {required_params}")
-            
+            raise ValueError(f"Missing required drone state parameters: {required_params}")
+
         if drone_state['height'] <= 0:
             raise ValueError("Drone height must be positive")
 
-        # Calculate center of detected object
-        center_x = bbox[0] + bbox[2]/2
-        center_y = bbox[1] + bbox[3]/2
-        
-        # Convert pixel coordinates to angles
+        # Get center of detected object
+        center_x = bbox[0] + bbox[2] / 2
+        center_y = bbox[1] + bbox[3] / 2
+
+        # Get angles and apply roll correction
         horizontal_angle, vertical_angle = self.pixel_to_angle(center_x, center_y)
-        
-        # Calculate ground distance
+        corrected_horizontal = horizontal_angle * cos(drone_state['roll'])
+        corrected_vertical = vertical_angle + horizontal_angle * sin(drone_state['roll'])
+
+        # Calculate distance with object height
         ground_distance = self.calculate_ground_distance(
-            vertical_angle,
+            corrected_vertical,
             drone_state['height'],
-            drone_state['pitch']
+            drone_state['pitch'],
+            object_real_height
         )
-        
-        # Convert to North-East coordinates relative to drone
-        # These calculations account for the drone's orientation
-        dx = ground_distance * sin(horizontal_angle)
-        dy = ground_distance * cos(horizontal_angle)
-        
-        # Apply drone's yaw to get world-oriented coordinates
-        north_offset = dy * cos(drone_state['yaw']) - dx * sin(drone_state['yaw'])
-        east_offset = dy * sin(drone_state['yaw']) + dx * cos(drone_state['yaw'])
-        
-        # Convert offsets to GPS coordinates
-        target_lat, target_lon = self.meters_to_gps(
-            drone_state['gps_lat'],
-            drone_state['gps_lon'],
-            north_offset,
-            east_offset
-        )
-        
-        return target_lat, target_lon
+
+        # Convert to cartesian coordinates
+        dx = ground_distance * sin(corrected_horizontal)
+        dy = ground_distance * cos(corrected_horizontal)
+
+        # Apply yaw rotation
+        x_local = dy * sin(drone_state['yaw']) + dx * cos(drone_state['yaw'])
+        y_local = dy * cos(drone_state['yaw']) - dx * sin(drone_state['yaw'])
+
+        # Convert to GPS
+        return self.local_to_gps(x_local, y_local)
 
 # Example usage
 if __name__ == "__main__":

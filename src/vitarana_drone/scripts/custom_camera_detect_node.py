@@ -86,7 +86,7 @@ class ImageDetector(ImageProcessUtils):
         self.gps_position[1] = data.longitude
         self.gps_position[2] = data.altitude
         # rospy.loginfo("GPS data received: {}".format(self.gps_position))
-        self.rate.sleep()
+        # self.rate.sleep()
 
     def condition_callback(self, data):
         self.condition_flag = data.data
